@@ -3,91 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER SECURITY CORPORATE PLATFORM</title>
+    <title>CYBER SECURITY INTELLIGENCE & ACADEMY PLATFORM</title>
     <style>
         :root {
-            --bg-corporate: #060913;
-            --bg-surface: #0c1322;
-            --brand-blue: #0066ff;
-            --accent-cyan: #00f0ff;
+            --bg-corporate: #05070f;
+            --bg-surface: #0b1120;
+            --bg-terminal: #020408;
+            --brand-blue: #2563eb;
+            --accent-cyan: #06b6d4;
             --accent-green: #10b981;
             --accent-red: #ef4444;
-            --border-color: rgba(255, 255, 255, 0.06);
-            --text-main: #f1f5f9;
+            --accent-orange: #f97316;
+            --text-main: #f8fafc;
             --text-secondary: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; min-height: 100vh; overflow-x: hidden; }
+        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; min-height: 100vh; overflow-x: hidden; font-size: 14px; }
         
-        .corp-header { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-        .corp-header h1 { font-size: 1.8rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
-        .corp-header h1 span { color: var(--brand-blue); }
-        .corp-header p { font-size: 0.85rem; color: var(--text-secondary); margin-top: 5px; font-family: monospace; }
+        /* HEADER CORPORATIVO UNIFICADO */
+        .corp-header { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .corp-header h1 { font-size: 1.6rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+        .corp-header h1 span { color: var(--accent-cyan); }
+        .corp-header p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; font-family: monospace; letter-spacing: 1px; }
 
-        .corp-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
-        .nav-item { background: var(--bg-surface); border: 1px solid var(--border-color); color: #ffffff; text-align: center; padding: 14px 5px; text-decoration: none; font-size: 0.8rem; font-weight: 700; border-radius: 8px; transition: all 0.2s ease; text-transform: uppercase; }
-        .nav-item:hover { border-color: var(--brand-blue); background: rgba(0, 102, 255, 0.08); transform: translateY(-1px); }
+        /* NAVEGAÇÃO ENTRE MÓDULOS DE REPOSITÓRIO */
+        .corp-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 15px; }
+        .nav-item { background: var(--bg-surface); border: 1px solid var(--border-color); color: #ffffff; text-align: center; padding: 12px 2px; text-decoration: none; font-size: 0.75rem; font-weight: 700; border-radius: 6px; text-transform: uppercase; transition: all 0.2s; }
+        .nav-item:hover { border-color: var(--accent-cyan); background: rgba(6, 182, 212, 0.05); }
 
-        .ai-telemetry-panel { background: rgba(0, 102, 255, 0.02); border: 1px solid rgba(0, 102, 255, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 0 15px rgba(0, 102, 255, 0.05); }
-        .ai-title-row { display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--brand-blue); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px; }
-        .ai-status-left { display: flex; align-items: center; gap: 8px; }
-        .status-indicator { width: 8px; height: 8px; background-color: var(--accent-cyan); border-radius: 50%; animation: pulseGlow 1.2s infinite; }
-        .ai-live-text { font-size: 0.95rem; color: #ffffff; min-height: 48px; border-left: 3px solid var(--brand-blue); padding-left: 12px; display: flex; align-items: center; font-family: monospace; }
+        /* SEÇÕES DO MONÓLITO */
+        .section-heading { font-size: 1rem; font-weight: 700; text-transform: uppercase; margin: 25px 0 15px 0; color: #ffffff; border-left: 4px solid var(--accent-cyan); padding-left: 10px; letter-spacing: 0.5px; }
+        .content-panel { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
         
-        .live-metrics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; font-family: monospace; font-size: 0.75rem; }
-        .metric-block { display: flex; flex-direction: column; }
-        .metric-label { color: var(--text-secondary); margin-bottom: 5px; }
-        .metric-value { color: var(--accent-cyan); font-weight: bold; }
-
-        .live-log-container { background: #040710; border: 1px solid #1e293b; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 0.75rem; color: var(--accent-green); height: 110px; overflow-y: hidden; margin-top: 15px; }
-
-        .section-heading { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; color: #ffffff; border-left: 4px solid var(--brand-blue); padding-left: 10px; }
-        .report-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 25px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+        p.desc-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; }
+        .block-title { font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 8px; font-family: monospace; letter-spacing: 0.5px; }
         
-        .image-banner-tech { width: 100%; height: 150px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; align-items: center; justify-content: center; }
-        .image-banner-tech::before { content: ""; position: absolute; width: 200%; height: 200%; background: linear-gradient(rgba(0,102,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,102,255,0.05) 1px, transparent 1px); background-size: 20px 20px; animation: gridMove 8s linear infinite; }
-        .banner-icon-center { font-size: 2.5rem; position: relative; z-index: 2; opacity: 0.85; filter: drop-shadow(0 0 10px var(--brand-blue)); }
-
-        .card-content { padding: 20px; }
-        .card-content h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: #ffffff; }
-        .card-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px; line-height: 1.5; }
-        
-        .block-title { font-size: 0.75rem; font-weight: 700; color: var(--brand-blue); text-transform: uppercase; margin-bottom: 6px; font-family: monospace; }
-        .terminal-block { background: #040710; border: 1px solid rgba(255,255,255,0.03); border-radius: 6px; padding: 14px; font-family: monospace; font-size: 0.8rem; color: #cbd5e1; margin-bottom: 15px; overflow-x: auto; white-space: pre-wrap; border-left: 3px solid var(--brand-blue); }
+        /* TERMINAL DE CÓDIGO BRUTO */
+        .terminal-block { background: var(--bg-terminal); border: 1px solid rgba(255,255,255,0.03); border-radius: 6px; padding: 12px; font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; color: #cbd5e1; margin-bottom: 15px; overflow-x: auto; white-space: pre-wrap; border-left: 3px solid var(--accent-cyan); word-break: break-all; }
         
         .guide-list { margin-left: 15px; margin-bottom: 15px; }
-        .guide-list li { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; list-style-type: square; }
+        .guide-list li { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; list-style-type: square; line-height: 1.5; }
         .guide-list strong { color: #ffffff; }
 
-        /* FORMULÁRIO DE CURSOS */
-        .course-form-container { background: var(--bg-surface); border: 1px solid var(--brand-blue); border-radius: 12px; padding: 25px 20px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 5px; font-weight: 600; }
-        .form-control { width: 100%; background: #040710; border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; color: var(--text-main); font-size: 0.9rem; outline: none; transition: border 0.2s; }
-        .form-control:focus { border-color: var(--brand-blue); }
-        .btn-submit { width: 100%; background: var(--brand-blue); color: white; border: none; padding: 14px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: opacity 0.2s; }
-        .btn-submit:hover { opacity: 0.9; }
-        .form-response { margin-top: 15px; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; display: none; }
+        /* COMPONENTE INTERATIVO: GERADOR DE LABORATÓRIOS */
+        .interactive-box { background: var(--bg-terminal); border: 1px solid rgba(37, 99, 235, 0.3); border-radius: 6px; padding: 15px; margin-top: 15px; }
+        .btn-action { background: var(--brand-blue); color: white; border: none; padding: 10px 16px; border-radius: 4px; font-size: 0.8rem; font-weight: 700; cursor: pointer; text-transform: uppercase; font-family: monospace; transition: background 0.2s; }
+        .btn-action:hover { background: #1d4ed8; }
+        .lab-output { margin-top: 12px; font-family: monospace; font-size: 0.8rem; line-height: 1.5; color: var(--accent-green); display: none; border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 10px; }
 
-        @keyframes pulseGlow {
-            0% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0px var(--accent-cyan); }
-            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 10px var(--accent-cyan); }
-            100% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0px var(--accent-cyan); }
-        }
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(-20px, -20px); }
-        }
+        /* FORMULÁRIOS DE MATRÍCULA E CONFIGURAÇÃO */
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px; font-weight: 600; }
+        .form-control { width: 100%; background: var(--bg-terminal); border: 1px solid var(--border-color); border-radius: 4px; padding: 10px; color: var(--text-main); font-size: 0.85rem; outline: none; }
+        .form-control:focus { border-color: var(--accent-cyan); }
+        
+        .form-response { margin-top: 12px; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.8rem; display: none; white-space: pre-wrap; word-break: break-all; }
     </style>
 </head>
 <body>
 
+    <!-- CABEÇALHO UNIFICADO CORPORATIVO -->
     <header class="corp-header">
         <h1>CYBER <span>SECURITY</span></h1>
-        <p>// CORPORATE DATA INTEL ENGINE v5.0</p>
+        <p>// CENTRAL MONOLÍTICA DE INTELIGÊNCIA E SIMULAÇÃO COMPUTAÇÃO ACTIVE</p>
     </header>
 
+    <!-- NAVEGAÇÃO PERFEITA DE REPOSITÓRIO -->
     <nav class="corp-nav">
         <a href="offensive.html" class="nav-item">Red Team</a>
         <a href="defensive.html" class="nav-item">Blue Team</a>
@@ -95,47 +78,64 @@
     </nav>
 
     <main>
-        <!-- MONITOR DE IA INTERATIVO -->
-        <section class="ai-telemetry-panel">
-            <div class="ai-title-row">
-                <div class="ai-status-left">
-                    <div class="status-indicator"></div>
-                    <span>SISTEMA DE TELEMETRIA E ANÁLISE OPERACIONAL</span>
-                </div>
-                <div style="font-family: monospace;" id="live-timer">SYS_TIME: 00:00:00</div>
-            </div>
-            
-            <div class="ai-live-text" id="ai-dynamic-text">
-                Inicializando varredura de barramento e checando integridade de dados locais...
-            </div>
-            
-            <div class="live-metrics-row">
-                <div class="metric-block">
-                    <span class="metric-label">LATÊNCIA</span>
-                    <span class="metric-value" id="val-latency">12 ms</span>
-                </div>
-                <div class="metric-block">
-                    <span class="metric-label">STATUS_RED</span>
-                    <span class="metric-value" id="val-severity" style="color: var(--accent-green);">INTEGRO</span>
-                </div>
-                <div class="metric-block">
-                    <span class="metric-label">SESSÕES_ATIVAS</span>
-                    <span class="metric-value" id="val-req">1,024</span>
-                </div>
-            </div>
 
-            <div class="live-log-container" id="live-log-console">
-                [SISTEMA] Monitor de telemetria operacional ativo e em execução.<br>
-                [SISTEMA] Indexando inteligência tática de ameaças globais persistentes (APTs).
+        <!-- MÓDULO INTERATIVO 1: GERADOR EM TEMPO REAL DE CENÁRIOS DE INCIDENTES (FUNÇÃO REAL) -->
+        <h2 class="section-heading">Engine Ativa de Simulação de Ameaças</h2>
+        <section class="content-panel" style="border-color: rgba(37, 99, 235, 0.4);">
+            <p class="desc-text">Gere cenários complexos de ataques persistentes avançados (APTs) baseados em infraestruturas reais e táticas do mundo real para validar playbooks defensivos imediatamente no navegador.</p>
+            <div class="interactive-box">
+                <button class="btn-action" onclick="generateCyberLab()">Gerar Cenário Tático de Auditoria</button>
+                <div class="lab-output" id="lab-scenario-output"></div>
             </div>
         </section>
 
-        <!-- SEÇÃO DE CURSOS / NICHO ACADÊMICO -->
-        <h2 class="section-heading">Formação Profissional em Defesa e Ataque</h2>
-        <section class="course-form-container">
-            <div class="block-title" style="margin-bottom: 12px; font-size: 0.9rem;">Trilha Avançada Avançada em Cibersegurança</div>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.5;">Inscreva-se na plataforma corporativa para receber atualizações acadêmicas, laboratórios práticos de simulação tática e guias completos sobre engenharia reversa e OPSEC.</p>
+        <!-- MÓDULO INTERATIVO 2: FERRAMENTA DE CODIFICAÇÃO DE VETOR (FUNÇÃO REAL) -->
+        <section class="content-panel">
+            <div class="block-title">Módulo de Configuração de Payload de Auditoria Local</div>
+            <p class="desc-text" style="font-size: 0.85rem;">Defina os parâmetros técnicos abaixo para estruturar a string estável de escuta reversa voltada a testes de controle perimetral em servidores de homologação.</p>
             
-            <form id="cyber-enrollment-form" onsubmit="handleEnrollment(event)">
+            <div class="form-group">
+                <label>Endereço IP do Analista (LHOST)</label>
+                <input type="text" id="payload-ip" class="form-control" value="10.0.0.15" placeholder="Ex: 192.168.1.50">
+            </div>
+            <div class="form-group">
+                <label>Porta de Comunicação Segura (LPORT)</label>
+                <input type="number" id="payload-port" class="form-control" value="4444" placeholder="Ex: 8080">
+            </div>
+            <div class="form-group">
+                <label>Arquitetura de Destino</label>
+                <select id="payload-platform" class="form-control" style="background: var(--bg-terminal); color: var(--text-main);">
+                    <option value="android">Android OS (Injeção de Persistência APK Backdoor)</option>
+                    <option value="windows">Windows Endpoint (Injeção de Processo e Evasion RAM)</option>
+                    <option value="linux">Linux Server (Shell Reverso para Validação de Hardening)</option>
+                </select>
+            </div>
+            <button class="btn-action" style="background: var(--accent-cyan);" onclick="compilePayloadString()">Gerar String Estruturada</button>
+            <div id="payload-output-box" class="form-response" style="background: rgba(6, 182, 212, 0.1); border: 1px solid var(--accent-cyan); color: #e2e8f0;"></div>
+        </section>
+
+        <!-- MÓDULO INTERATIVO 3: CADASTRO EDUCACIONAL E CAPACITAÇÃO PROFISSIONAL -->
+        <h2 class="section-title" style="border-left-color: var(--accent-green);">Ecossistema de Capacitação Técnica (Nicho de Cursos)</h2>
+        <section class="content-panel" style="border-color: rgba(16, 185, 129, 0.3);">
+            <p class="desc-text">Inscreva operadores e analistas de infraestrutura na trilha avançada corporativa de cibersegurança do portal para obter acesso a diretrizes completas de auditoria de hardware e sistemas.</p>
+            
+            <form onsubmit="processEnrollment(event)">
                 <div class="form-group">
-                    <label for="student-name">Nome Completo do Operador</label>
+                    <label>Nome Completo do Operador</label>
+                    <input type="text" id="user-name" class="form-control" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail Corporativo de Destino</label>
+                    <input type="email" id="user-email" class="form-control" placeholder="analista@corporativo.com" required>
+                </div>
+                <button type="submit" class="btn-submit" style="background: var(--accent-green); padding: 10px 16px; border-radius: 4px; color: white; border: none; font-weight: bold; cursor: pointer; font-size: 0.8rem; font-family: monospace; text-transform: uppercase;">Confirmar Registro Acadêmico</button>
+            </form>
+            <div id="enrollment-response-block" class="form-response"></div>
+        </section>
+
+        <!-- DOSSIÊS BRUTOS DE INTELIGÊNCIA TÁTICA E VERÍDICA -->
+        <h2 class="section-heading">Dossiês Técnicos e Vetores de Ameaças Globais</h2>
+
+        <!-- INTELIGÊNCIA WI-FI -->
+        <article class="content-panel">
+            <h3>01. Segurança Estrutural e Comprometimento Wireless (Wi-Fi)</h3>
