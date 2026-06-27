@@ -28,7 +28,9 @@
         
         .bullet-list { margin-left: 20px; margin-bottom: 15px; }
         .bullet-list li { color: var(--text-desc); font-size: 0.95rem; margin-bottom: 10px; list-style-type: square; line-height: 1.6; }
-        .bullet-list strong { color: #ffffff; font-weight: 600; }
+        
+        /* BOTÃO CORPORATIVO DE INVOCAÇÃO DO WPSAPP */
+        .btn-wps-invoke { display: block; width: 100%; max-width: 300px; margin: 25px auto; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border: 1px solid rgba(37, 99, 235, 0.4); padding: 14px; border-radius: 8px; text-align: center; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); font-family: monospace; }
     </style>
 </head>
 <body>
@@ -36,55 +38,54 @@
     <a href="index.html" class="nav-back">← RETORNAR À ÁRVORE DE CURSOS</a>
     <h2 class="section-title">Repositório de Conhecimento // Trilha Ofensiva Avançada</h2>
 
-    <!-- SEÇÃO 01 -->
+    <!-- CONTEÚDOS DE FUNDAMENTOS -->
     <section class="knowledge-section" id="fundamentos">
         <h3>Fundamentos de Segurança e Mecanismos Pentest</h3>
-        
         <div class="topic-block">
             <div class="topic-title">Conceitos Avançados de Auditoria Intrusa</div>
-            <p>O Teste de Intrusão profissional (Pentest) afasta-se completamente de visões amadoras de vandalismo digital. Trata-se de uma disciplina científica e metodológica de segurança da informação baseada em simulações controladas de adversários reais. O auditor de segurança (Pentester) atua sob contratos estritos de confidencialidade e escopo para mapear vulnerabilidades lógicas, erros de projeto em arquiteturas de redes e falhas de patch em sistemas corporativos antes que grupos cibercriminosos as descubram.</p>
-            <p>O valor de um Pentest não reside na invasão em si, mas sim no relatório pós-exploração que detalha de forma quantitativa o impacto financeiro, operacional e de reputação que a brecha traria para a infraestrutura de TI do cliente. Através dessa análise, a gerência executiva consegue direcionar orçamentos de proteção baseando-se em riscos reais auditados em campo.</p>
-        </div>
-
-        <div class="topic-block">
-            <div class="topic-title">O Framework de Mapeamento Técnico de Riscos</div>
-            <p>Para garantir que nenhum ativo de rede seja negligenciado, auditorias de segurança de alta patente seguem metodologias internacionais padronizadas (como OWASP, OSSTMM e PTES). Esse fluxo operacional divide o teste de intrusão em fases interdependentes que constroem a inteligência do ataque:</p>
-            <ul class="bullet-list">
-                <li><strong>Reconhecimento Ativo e Passivo (Recon):</strong> Coleta minuciosa de inteligência sobre o alvo. O auditor varre bancos de dados públicos, registros de DNS, metadados de arquivos expostos e ferramentas de OSINT para desenhar o perímetro externo da empresa, descobrindo subdomínios órfãos e IPs ativos sem proteção adequada.</li>
-                <li><strong>Análise e Varredura de Superfície:</strong> Utilizando inventários automatizados, o analista mapeia todas as portas de comunicação TCP/UDP abertas e os serviços em execução nos servidores. Cada versão de software identificada é cruzada com bancos de dados globais de CVEs (Common Vulnerabilities and Exposures) para verificar falhas latentes.</li>
-                <li><strong>Exploração e Quebra de Perímetro:</strong> O momento em que a vulnerabilidade teórica é validada na prática. O auditor desenvolve ou adapta códigos de exploits para demonstrar a viabilidade de execução remota de código (RCE), escalonamento de privilégios ou vazamento de tabelas de dados.</li>
-            </ul>
+            <p>O Teste de Intrusão profissional (Pentest) consiste em uma simulação autorizada e controlada de um ataque digital contra a infraestrutura de uma empresa. O objetivo primordial é a identificação proativa de brechas lógicas, erros de projeto em arquiteturas de redes e falhas de patch em sistemas corporativos antes que agentes maliciosos reais as descubram.</p>
         </div>
     </section>
 
-    <!-- SEÇÃO 02 -->
+    <!-- CONTEÚDOS DO LINUX / SHELL -->
     <section class="knowledge-section" id="linux-shell">
         <h3>Ambientes de Terminal Linux e Ecossistema Móvel</h3>
-        
         <div class="topic-block">
             <div class="topic-title">Engenharia de Linha de Comando e Sistemas Unix</div>
-            <p>Operações ofensivas avançadas dispensam o uso de interfaces gráficas. O Shell (linha de comando) é o instrumento mestre de controle em auditorias de sistemas de TI. Compreender a fundo a filosofia Unix — onde tudo é tratado como um arquivo —, o funcionamento de fluxos internos de entrada e saída (stdin, stdout, stderr), permissões de arquivos estruturadas e a manipulação dinâmica de buffers e strings é o que separa um analista sênior de um operador comum.</p>
-            <p>Durante uma pós-exploração bem-sucedida, o controle obtido de um servidor frequentemente se resume a um prompt de comando cru. Saber navegar por diretórios restritos do sistema, analisar variáveis de ambiente e injetar comandos diretamente na memória RAM viva de forma manual é essencial para manter a persistência sem disparar alertas em sistemas de monitoramento.</p>
-        </div>
-
-        <div class="topic-block">
-            <div class="topic-title">O Papel Técnico do Termux no Ambiente Android</div>
-            <p>O Termux opera como um ecossistema terminal Linux emulado diretamente dentro do espaço de usuário (User Space) isolado do sistema operacional Android. Ele fornece acesso completo a ferramentas nativas de auditoria sem a necessidade de Root do dispositivo, permitindo a instalação de pacotes como Python, Git, OpenSSH e ferramentas de varredura de rede direta.</p>
-            <p>No entanto, a engenharia por trás do Termux exige o entendimento das restrições de barramento do Android 10+. APIs de segurança modernas barram o acesso indiscriminado à área de transferência do celular (Clipboard), o que costuma causar bugs em scripts automatizados e truncar strings longas ou links contendo barras (/) e sufixos de domínio. Para contornar essas limitações de memória e buffers compartilhados, engenheiros evitam comandos diretos de cópia e forçam a gravação de chaves públicas criptográficas (como chaves RSA para SSH) por meio de redirecionamento de arquivos locais (`cat << 'EOF'`), blindando o cabeçalho contra corrupção.</p>
+            <p>Operações ofensivas avançadas dispensam o uso de interfaces gráficas. O Shell (linha de comando) é o instrumento mestre de controle em auditorias de sistemas de TI. Compreender a fundo a filosofia Unix, o funcionamento de fluxos internos de entrada e saída, permissões de arquivos estruturadas e a manipulação dinâmica de buffers é essencial para operar ferramentas analíticas de segurança.</p>
         </div>
     </section>
 
-    <!-- SEÇÃO 03 -->
+    <!-- CONTEÚDOS WI-FI JÁ EXISTENTES -->
     <section class="knowledge-section" id="wifi">
         <h3>Metodologias de Auditoria em Redes Sem Fio (Wi-Fi)</h3>
+        <div class="topic-block">
+            <div class="topic-title">O Mecanismo de Captura e Quebra de Handshakes Criptográficos</div>
+            <p>Grupos estatais e sindicatos cibernéticos mundiais de alta periculosidade, como o APT28, comprometem perímetros de redes de computadores explorando falhas estruturais na especificação do protocolo IEEE 802.11. Atacantes utilizam placas de rede Wi-Fi configuradas em Modo Monitor (RFMON) para ouvir as frequências de rádio de forma totalmente oculta e disparar em massa pacotes falsificados de desautenticação (Deauth), interceptando a troca de chaves criptográficas.</p>
+        </div>
+    </section>
+
+    <!-- NOVA SEÇÃO ADICIONADA: INFORMAÇÕES REAIS DO WPS & BOTÃO DA INTENT DO WPSAPP -->
+    <section class="knowledge-section" id="wps-auditing">
+        <h3>04. Protocolo WPS (Wi-Fi Protected Setup) e Engenharia de PINs</h3>
         
         <div class="topic-block">
-            <div class="topic-title">Modo de Operação Hacker das Maiores Organizações do Mundo</div>
-            <p>Grupos estatais e sindicatos cibernéticos mundiais de alta periculosidade, como o <strong>APT28 (Fancy Bear)</strong>, comprometem perímetros de redes de computadores explorando falhas estruturais na especificação do protocolo IEEE 802.11. Em redes sem fio comuns, os quadros de gerenciamento e controle de sinal (Management Frames) trafegam em texto claro pelo ar, sem nenhum tipo de criptografia ou assinatura digital, independentemente do tamanho da senha da Wi-Fi.</p>
-            <p>Os atacantes posicionam adaptadores Wi-Fi especiais configurados em Modo Monitor (RFMON), permitindo a escuta passiva de todo o tráfego aéreo de radiofrequência sem precisar estar autenticado no roteador. Utilizando ferramentas avançadas como o `mdk4` ou scripts customizados em Python, os hackers disparam em massa pacotes falsificados de desautenticação (Deauth) contendo o endereço MAC clonado do roteador. Isso força a queda instantânea da conexão de celulares e computadores legítimos que operam naquela frequência.</p>
+            <div class="topic-title">Como a Vulnerabilidade Estrutural do WPS Ocorre</div>
+            <p>O recurso Wi-Fi Protected Setup (WPS) foi projetado para simplificar o processo de conexão em redes sem fio domésticas e corporativas por meio do uso de um código PIN numérico estático de 8 dígitos impresso na etiqueta do roteador. No entanto, o protocolo possui uma falha grave de projeto em sua arquitetura de autenticação de chaves: em vez de validar a sequência inteira de 8 dígitos de uma só vez (o que exigiria 100 milhões de tentativas em força bruta), o roteador valida os primeiros 4 dígitos de forma isolada, e depois valida os 3 dígitos seguintes (o último dígito é apenas um checksum matemático).</p>
+            <p>Essa quebra de barramento reduz drasticamente o espaço de combinações de chaves de 100 milhões de strings para apenas 11.000 possibilidades. Sabendo disso, auditores de redes conseguem varrer e adivinhar o PIN correto através do ar em poucos minutos, forçando o roteador vulnerável a entregar a senha WPA/WPA2 principal de texto claro em formato de resposta à consulta.</p>
         </div>
 
         <div class="topic-block">
-            <div class="topic-title">O Mecanismo de Captura e Quebra de Handshakes Criptográficos</div>
-            <p>No exato milissegundo em que os computadores ou smartphones alvos tentam reestabelecer o sinal Wi-Fi caídos através da reconexão automática, a placa de rede em modo monitor intercepta a troca de chaves criptográficas de autenticação, conhecida como o Handshake de quatro vias (4-Way Handshake). Esse pacote de dados gerado no ar abriga as funções criptográficas e hashes derivados da senha da rede corporativa.</p>
-            <p>Com o handshake isolado em um arquivo local, os atacantes removem o hardware de campo e executam ataques de força bruta offline em servidores dedicados baseados em clusters de GPUs de alta performance. Eles processam dicionários gigantescos de strings (Wordlists) contendo bilhões de senhas vazadas por segundo contra o hash capturado. Como o ataque ocorre em ambiente local isolado, o roteador da empresa nunca recebe as tentativas de login erradas, impossibilitando bloqueios automatizados de segurança e resultando na decifração da senha real se ela não seguir padrões complexos.</p>
+            <div class="topic-title">Uso Técnico de Ferramentas Móveis e Algoritmos de PIN conhecidos</div>
+            <p>Em ambientes de testes corporativos baseados em smartphones, ferramentas especializadas como o <strong>WPSApp</strong> são utilizadas para automatizar o processo de checagem heurística da rede sem fio. O software opera interceptando os beacons Wi-Fi que indicam se o recurso WPS está ativo e com falha de bloqueio de tentativas erradas (Lockout).</p>
+            <p>O aplicativo cruza os primeiros bytes do endereço físico do roteador (BUI/OUI) com bancos de dados de algoritmos conhecidos de fabricantes (como os algoritmos *Zhao*, *Blink*, *TrendNet* ou *Asus*). Ele tenta os PINs padronizados de fábrica de forma direta ou calcula chaves pseudoaleatórias com base no MAC address do ponto de acesso, permitindo auditar a resiliência do hardware sem disparar alertas.</p>
+        </div>
+
+        <!-- BOTÃO DE INVOCAÇÃO REAL DO WPSAPP EM DISPOSITIVOS ANDROID -->
+        <a href="intent://#Intent;scheme=wpsapp;package=com.themausoft.wpsapp;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;launchFlags=0x10000000;end" class="btn-wps-invoke">
+            ⚡ Abrir e Executar Auditoria no WPSApp
+        </a>
+    </section>
+
+</body>
+</html>
