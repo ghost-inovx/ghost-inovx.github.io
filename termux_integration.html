@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER SECURITY - TERMUX PLATFORM</title>
+    <style>
+        :root {
+            --bg-main: #060913;
+            --bg-card: #0b1220;
+            --bg-terminal: #02040a;
+            --accent-blue: #00d2ff;
+            --text-title: #ffffff;
+            --text-desc: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.7; }
+        .nav-back { color: var(--accent-blue); text-decoration: none; font-family: monospace; display: inline-block; margin-bottom: 20px; font-weight: bold; font-size: 0.85rem; }
+        .section-title { font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; color: #ffffff; border-left: 4px solid var(--accent-blue); padding-left: 12px; letter-spacing: 0.5px; }
+        
+        .knowledge-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .knowledge-section h3 { font-size: 1.3rem; color: #ffffff; margin-bottom: 15px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 8px; font-weight: 700; }
+        
+        .topic-block { margin-bottom: 25px; }
+        .topic-title { font-size: 1rem; font-weight: 700; color: var(--accent-blue); margin-bottom: 10px; text-transform: uppercase; font-family: monospace; letter-spacing: 0.5px; }
+        .knowledge-section p { color: var(--text-desc); font-size: 0.95rem; margin-bottom: 15px; text-align: justify; }
+        
+        /* BOTÃO DE INTERCEPTAÇÃO DA INTENT DO TERMUX */
+        .btn-termux-invoke { display: block; width: 100%; max-width: 300px; margin: 25px auto; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; border: 1px solid rgba(37, 99, 235, 0.4); padding: 14px; border-radius: 8px; text-align: center; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3); font-family: monospace; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="nav-back">← RETORNAR À ÁRVORE DE CURSOS</a>
+    <h2 class="section-title">Módulo de Automação // Invocação Nativa Termux</h2>
+
+    <section class="knowledge-section">
+        <h3>Integração entre Ecossistema Web e Shell do Android</h3>
+        
+        <div class="topic-block">
+            <div class="topic-title">Como Funciona o Acionamento Computacional Remoto</div>
+            <p>Através da engenharia de esquemas de intenção do sistema operacional Android (Intents), o aplicativo da Nexoguard consegue invocar de forma direta e transparente a execução do ecossistema de pacotes do Termux. Ao tocar no botão operacional abaixo, o sistema operacional intercepta a chamada estruturada de barramento que força a inicialização do terminal Unix em primeiro plano, contornando buffers e erros manuais de área de transferência.</p>
+        </div>
+
+        <!-- COMANDO OPERACIONAL DE DISPARO DA INTENT DO TERMUX -->
+        <a href="intent://#Intent;scheme=termux;package=com.termux;end" class="btn-termux-invoke">
+            ⚡ Abrir Terminal Termux Nativo
+        </a>
+
+        <div class="topic-block">
+            <div class="topic-title">Manual de Configuração e OPSEC no Termux</div>
+            <p>Para assegurar que as execuções de rede não quebrem e que chaves criptográficas públicas de SSH (publickey) autentiquem servidores corporativos sem bloqueios, execute o protocolo de hardening abaixo diretamente na linha de comando aberta no aparelho:</p>
+            <p style="font-family: monospace; font-size: 0.85rem; background: #02040a; padding: 12px; border-radius: 6px; color: #cbd5e1; border-left: 3px solid var(--accent-blue);">
+                pkg update && pkg upgrade -y<br>
+                pkg install openssh python git nmap -y<br>
+                termux-setup-storage
+            </p>
+        </div>
+    </section>
+
+</body>
+</html>
