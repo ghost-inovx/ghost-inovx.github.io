@@ -1,0 +1,16 @@
+{
+  "name": "NexoGuard Wi-Fi Security",
+  "short_name": "NexoGuard",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#05070c",
+  "theme_color": "#00ffcc",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://flaticon.com",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
