@@ -1,233 +1,156 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexoGuard - Inteligência e Segurança Conectada</title>
+    <title>CYBER SECURITY</title>
     <style>
         :root {
-            --bg-color: #0b0c10;
-            --text-color: #c5c6c7;
-            --neon-cyan: #00f0ff;
-            --neon-magenta: #ff007f;
-            --card-bg: #1f2833;
+            --bg-main: #060913;
+            --bg-card: #0b1220;
+            --accent-blue: #00d2ff;
+            --accent-magenta: #ff007f;
+            --accent-green: #00ff66;
+            --accent-orange: #ff9900;
+            --text-title: #ffffff;
+            --text-desc: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; min-height: 100vh; padding-bottom: 40px; }
+        
+        .academy-header { text-align: center; padding: 25px 15px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .academy-header h1 { font-size: 1.6rem; font-weight: 800; color: var(--text-title); letter-spacing: -0.5px; text-transform: uppercase; }
+        .academy-header h1 span { color: var(--accent-blue); }
+        .academy-header p { font-size: 0.85rem; color: var(--text-desc); margin-top: 5px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+
+        .roadmap-container { position: relative; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center; }
+        .roadmap-container::before { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.08); z-index: 1; }
+
+        .course-link { text-decoration: none; display: block; width: 100%; max-width: 340px; position: relative; z-index: 2; }
+        .course-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        
+        /* ANIMAÇÃO DE LUZ NEON PISCANTE POR CATEGORIA */
+        .pulse-blue { animation: neon-pulse-blue 2s infinite ease-in-out; border-top: 4px solid var(--accent-blue); }
+        .pulse-magenta { animation: neon-pulse-magenta 2.3s infinite ease-in-out; border-top: 4px solid var(--accent-magenta); }
+        .pulse-green { animation: neon-pulse-green 2.1s infinite ease-in-out; border-top: 4px solid var(--accent-green); }
+        .pulse-orange { animation: neon-pulse-orange 1.9s infinite ease-in-out; border-top: 4px solid var(--accent-orange); }
+
+        .course-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.2); }
+        
+        .icon-box { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 12px; background: rgba(255,255,255,0.01); border-radius: 50%; border: 1px solid rgba(255,255,255,0.04); }
+        
+        .course-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-title); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+        .course-card p { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* SEÇÃO DE CONTEÚDO GIGANTE E PROFISSONAL */
+        .documentation-section { max-width: 600px; margin: 50px auto 20px auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .documentation-section h2 { font-size: 1.2rem; font-weight: 800; color: var(--text-title); margin-bottom: 20px; border-left: 3px solid var(--accent-blue); padding-left: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .documentation-section h3 { font-size: 0.95rem; color: #fff; margin: 25px 0 10px 0; text-transform: uppercase; }
+        .documentation-section p { font-size: 0.85rem; color: var(--text-desc); line-height: 1.7; margin-bottom: 15px; text-align: justify; }
+        .documentation-section ul { margin-left: 20px; margin-bottom: 15px; }
+        .documentation-section li { font-size: 0.85rem; color: var(--text-desc); margin-bottom: 8px; line-height: 1.5; }
+
+        /* REGRAS DAS ANIMAÇÕES DE PULSAÇÃO DE LUZ COORDENADAS */
+        @keyframes neon-pulse-blue {
+            0% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(0, 210, 255, 0.1); }
+            50% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 14px rgba(0, 210, 255, 0.5); border-color: rgba(0, 210, 255, 0.3); }
+            100% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(0, 210, 255, 0.1); }
+        }
+        @keyframes neon-pulse-magenta {
+            0% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(255, 0, 127, 0.1); }
+            50% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 14px rgba(255, 0, 127, 0.5); border-color: rgba(255, 0, 127, 0.3); }
+            100% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(255, 0, 127, 0.1); }
+        }
+        @keyframes neon-pulse-green {
+            0% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(0, 255, 102, 0.1); }
+            50% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 14px rgba(0, 255, 102, 0.5); border-color: rgba(0, 255, 102, 0.3); }
+            100% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(0, 255, 102, 0.1); }
+        }
+        @keyframes neon-pulse-orange {
+            0% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(255, 153, 0, 0.1); }
+            50% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 14px rgba(255, 153, 0, 0.5); border-color: rgba(255, 153, 0, 0.3); }
+            100% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(255, 153, 0, 0.1); }
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(180deg, #1f2833 0%, #0b0c10 100%);
-            border-bottom: 2px solid #1f2833;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            color: #fff;
-            margin-bottom: 10px;
-            text-shadow: 0 0 10px var(--neon-cyan);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Conteúdo Explicativo Gigante */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .intro-text {
-            font-size: 1.1rem;
-            margin-bottom: 50px;
-            text-align: justify;
-        }
-
-        /* Grid de 8 Blocos Neon */
-        .grid-blocos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 60px;
-        }
-
-        .bloco-neon {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            padding: 25px;
-            text-align: left;
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .bloco-neon:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Animação Piscante dos Blocos (CSS Puro) */
-        .bloco-neon:nth-child(odd) {
-            animation: piscarCyan 4s infinite alternate;
-        }
-
-        .bloco-neon:nth-child(even) {
-            animation: piscarMagenta 4s infinite alternate-reverse;
-        }
-
-        /* Delay para os blocos não piscarem todos exatamente iguais */
-        .bloco-neon:nth-child(3n) { animation-delay: 0.5s; }
-        .bloco-neon:nth-child(3n+1) { animation-delay: 1.2s; }
-        .bloco-neon:nth-child(3n+2) { animation-delay: 2s; }
-
-        @keyframes piscarCyan {
-            0%, 100% {
-                border: 2px solid #1f2833;
-                box-shadow: none;
-            }
-            45%, 55% {
-                border: 2px solid var(--neon-cyan);
-                box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.2);
-            }
-            50% {
-                border: 2px solid #fff;
-                box-shadow: 0 0 25px var(--neon-cyan), inset 0 0 15px var(--neon-cyan);
-            }
-        }
-
-        @keyframes piscarMagenta {
-            0%, 100% {
-                border: 2px solid #1f2833;
-                box-shadow: none;
-            }
-            45%, 55% {
-                border: 2px solid var(--neon-magenta);
-                box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), inset 0 0 10px rgba(255, 0, 127, 0.2);
-            }
-            50% {
-                border: 2px solid #fff;
-                box-shadow: 0 0 25px var(--neon-magenta), inset 0 0 15px var(--neon-magenta);
-            }
-        }
-
-        .bloco-neon h3 {
-            color: #fff;
-            margin-bottom: 12px;
-            font-size: 1.3rem;
-        }
-
-        /* Seções de Texto Profissional Profundo */
-        .secao-detalhada {
-            background-color: #151a21;
-            padding: 40px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            border-left: 4px solid var(--neon-cyan);
-        }
-
-        .secao-detalhada h2 {
-            color: #fff;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .secao-detalhada p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #666;
-            border-top: 1px solid #1f2833;
-            font-size: 0.9rem;
-        }
+        footer { text-align: center; padding: 25px 10px; font-size: 0.75rem; color: var(--text-desc); font-family: monospace; margin-top: 5px; border-top: 1px solid var(--border-color); }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>NexoGuard</h1>
-        <p>Infraestrutura escalável, monitoramento e segurança avançada sem fricção digital.</p>
+    <header class="academy-header">
+        <h1>CYBER <span>SECURITY</span></h1>
+        <p>// FORMAÇÃO AVANÇADA DE OPERADORES DE SEGURANÇA</p>
     </header>
 
-    <div class="container">
-        
-        <section class="intro-text">
-            <h2>Arquitetura e Processamento de Contexto</h2>
-            <p>O NexoGuard foi concebido sob a premissa de entregar máxima performance de carregamento e legibilidade impecável. Esta documentação interativa detalha os pilares operacionais do nosso ecossistema. Eliminamos scripts redundantes de busca para assegurar que o carregamento em dispositivos móveis ocorra de forma instantânea e limpa, mitigando quebras de layout e falhas de runtime.</p>
-        </section>
+    <main>
+        <!-- ROADMAP COESIVO DE 8 BLOCOS COM LUZES INDIVIDUAIS -->
+        <div class="roadmap-container">
+            
+            <!-- 01. FUNDAMENTOS (AZUL PISCANTE) -->
+            <a href="offensive.html#fundamentos" class="course-link">
+                <div class="course-card pulse-blue">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🔒</div>
+                    <h3>Fundamentos de Segurança e Pentest</h3>
+                    <p style="color: var(--accent-blue);">Diretório de Entrada</p>
+                </div>
+            </a>
 
-        <!-- Grade com os 8 Blocos Piscantes -->
-        <main class="grid-blocos">
-            <div class="bloco-neon">
-                <h3>01. Núcleo Isolado</h3>
-                <p>Processamento de dados descentralizado com barramento lógico de alta velocidade.</p>
-            </div>
-            <div class="bloco-neon">
-                <h3>02. Latência Zero</h3>
-                <p>Otimização de requisições de ponta a ponta sem loops de processamento síncrono.</p>
-            </div>
-            <div class="bloco-neon">
-                <h3>03. Resiliência Mobile</h3>
-                <p>Layout totalmente fluido projetado para touchscreens e conexões móveis instáveis.</p>
-            </div>
-            <div class="bloco-neon">
-                <h3>04. Criptografia Viva</h3>
-                <p>Chaves assimétricas rotativas protegendo cada bloco lógico da sua aplicação.</p>
-            </div>
-            <div class="bloco-neon">
-                <h3>05. Design Neon Dinâmico</h3>
-                <p>Interface futurista implementada via animações de hardware aceleradas por GPU.</p>
-            </div>
-            <div class="bloco-neon">
-                <h3>06. Escalaridade Estática</h3>
-                <p>Hospedagem eficiente direto nas bordas do GitHub Pages sem gargalos de servidor.</p>
-            </div>
-            <div class="bloco-neon">
-                <h3>07. Foco Sem Distrações</h3>
-                <p>Conteúdo puramente técnico focado na leitura fluida e na documentação direta.</p>
-            </div>
-            <div class="bloco-neon">
-                <h3>08. Consistência Total</h3>
-                <p>Sincronia perfeita entre a estilização visual sofisticada e a semântica estrutural.</p>
-            </div>
-        </main>
+            <!-- 02. LINUX E SHELL (AZUL PISCANTE) -->
+            <a href="offensive.html#linux-shell" class="course-link">
+                <div class="course-card pulse-blue">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🐧</div>
+                    <h3>Dominando o Linux e Shell para Pentesters</h3>
+                    <p style="color: var(--accent-blue);">Infraestrutura de Terminal</p>
+                </div>
+            </a>
 
-        <!-- Conteúdo Gigante Explicativo Adicional -->
-        <section class="secao-detalhada">
-            <h2>Análise Técnica Operacional</h2>
-            <p>A arquitetura empregada neste repositório resolve o principal problema das páginas estáticas modernas: a sobrecarga de scripts de terceiros. Ao preterir motores complexos de busca client-side no mobile, o NexoGuard prioriza o tempo de resposta interativo (Time to Interactive - TTI).</p>
-            <p>Cada um dos 8 blocos de luz neon utiliza propriedades CSS `box-shadow` e `keyframes` síncronos com atrasos alternados (`animation-delay`). Isso distribui a carga de renderização do navegador, mantendo o scroll de tela liso em celulares antigos e novos.</p>
-        </section>
+            <!-- 03. AUDITORIA WI-FI (MAGENTA PISCANTE) -->
+            <a href="offensive.html#wifi" class="course-link">
+                <div class="course-card pulse-magenta">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">📡</div>
+                    <h3>Auditoria de Redes e Ataques Wi-Fi</h3>
+                    <p style="color: var(--accent-magenta);">Módulo Ofensivo</p>
+                </div>
+            </a>
 
-        <section class="secao-detalhada" style="border-left-color: var(--neon-magenta);">
-            <h2>Manutenção do Repositório</h2>
-            <p>Para expandir o projeto, basta adicionar novas seções textuais ou replicar a classe `.bloco-neon` dentro do grid principal. O CSS recalculará automaticamente a distribuição das colunas, preservando o grid intacto em qualquer resolução.</p>
-        </section>
+            <!-- 04. PÓS-EXPLORAÇÃO (MAGENTA PISCANTE) -->
+            <a href="offensive.html" class="course-link">
+                <div class="course-card pulse-magenta">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">🎒</div>
+                    <h3>Pós-Exploração e Pivotamento Linux</h3>
+                    <p style="color: var(--accent-magenta);">Módulo Ofensivo</p>
+                </div>
+            </a>
 
-    </div>
+            <!-- 05. DOCKER PENTEST (NOVO - MAGENTA PISCANTE) -->
+            <a href="soc_automation.html" class="course-link">
+                <div class="course-card pulse-magenta">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">🐋</div>
+                    <h3>Docker para Pentesters e Containers</h3>
+                    <p style="color: var(--accent-magenta);">Módulo de Infraestrutura</p>
+                </div>
+            </a>
 
-    <footer>
-        <p>&copy; NexoGuard Projetos Tecnológicos. Executado com sucesso via GitHub Pages.</p>
-    </footer>
+            <!-- 06. BLUE TEAM (VERDE PISCANTE) -->
+            <a href="defensive.html" class="course-link">
+                <div class="course-card pulse-green">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-green));">🛡️</div>
+                    <h3>Blue Team & Hardening de Servidores</h3>
+                    <p style="color: var(--accent-green);">Módulo Defensivo</p>
+                </div>
+            </a>
 
-</body>
-</html>
+            <!-- 07. MALWARE ANDROID (VERDE PISCANTE) -->
+            <a href="defensive.html" class="course-link">
+                <div class="course-card pulse-green">
+                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-green));">🤖</div>
+                    <h3>Desenvolvimento de Malwares para Android</h3>
+                    <p style="color: var(--accent-green);">Módulo Avançado Mobile</p>
+                </div>
+            </a>
+
+            <!-- 08. INTELIGÊNCIA ARTIFICIAL (NOVO - LARANJA PISCANTE) -->
+            <a href="soc_automation.html" class="course-link">
+                <div class="course-card pulse-orange">
