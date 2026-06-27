@@ -8,6 +8,7 @@
         :root {
             --bg-main: #060913;
             --bg-card: #0b1220;
+            --bg-terminal: #02040a;
             --accent-blue: #00d2ff;
             --accent-magenta: #ff007f;
             --accent-green: #00ff66;
@@ -20,31 +21,47 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
         body { background-color: var(--bg-main); color: #ffffff; padding: 15px; min-height: 100vh; padding-bottom: 40px; }
         
-        .academy-header { text-align: center; padding: 25px 15px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .academy-header { text-align: center; padding: 25px 15px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
         .academy-header h1 { font-size: 1.6rem; font-weight: 800; color: var(--text-title); letter-spacing: -0.5px; text-transform: uppercase; }
         .academy-header h1 span { color: var(--accent-blue); }
         .academy-header p { font-size: 0.85rem; color: var(--text-desc); margin-top: 5px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
 
-        .roadmap-container { position: relative; max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center; }
+        .download-container { width: 100%; max-width: 340px; margin: 0 auto 20px auto; text-align: center; }
+        .download-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #10b981, #059669); color: white; border: 1px solid rgba(16, 185, 129, 0.3); padding: 14px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2); transition: all 0.2s ease; }
+        .download-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
+
+        /* PAINÉIS DAS FERRAMENTAS REAIS */
+        .tool-panel { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; width: 100%; max-width: 340px; margin: 0 auto 20px auto; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .tool-panel h2 { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; border-left: 3px solid var(--accent-blue); padding-left: 8px; color: #ffffff; }
+        
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-size: 0.75rem; color: var(--text-desc); margin-bottom: 4px; font-weight: 600; text-transform: uppercase; }
+        .form-control { width: 100%; background: var(--bg-terminal); border: 1px solid var(--border-color); border-radius: 6px; padding: 10px; color: #ffffff; font-size: 0.85rem; outline: none; font-family: monospace; }
+        .form-control:focus { border-color: var(--accent-blue); }
+        
+        .btn-tool { width: 100%; background: var(--brand-blue); color: white; border: none; padding: 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: background 0.2s; font-family: monospace; }
+        .btn-tool:hover { background: #1d4ed8; }
+        
+        .tool-output { background: var(--bg-terminal); border: 1px dashed rgba(255,255,255,0.1); border-radius: 6px; padding: 10px; margin-top: 12px; font-family: monospace; font-size: 0.8rem; color: var(--accent-green); word-break: break-all; }
+
+        /* ROADMAP */
+        .roadmap-container { position: relative; max-width: 600px; margin: 40px auto 0 auto; display: flex; flex-direction: column; gap: 24px; align-items: center; }
         .roadmap-container::before { content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,0.08); z-index: 1; }
 
         .course-link { text-decoration: none; display: block; width: 100%; max-width: 340px; position: relative; z-index: 2; }
         .course-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
         
-        /* ANIMAÇÃO DE LUZ NEON PISCANTE POR CATEGORIA */
         .pulse-blue { animation: neon-pulse-blue 2s infinite ease-in-out; border-top: 4px solid var(--accent-blue); }
         .pulse-magenta { animation: neon-pulse-magenta 2s infinite ease-in-out; border-top: 4px solid var(--accent-magenta); }
         .pulse-green { animation: neon-pulse-green 2s infinite ease-in-out; border-top: 4px solid var(--accent-green); }
         .pulse-orange { animation: neon-pulse-orange 2s infinite ease-in-out; border-top: 4px solid var(--accent-orange); }
 
-        .course-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.2); }
-        
+        .course-card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); }
         .icon-box { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 12px; background: rgba(255,255,255,0.01); border-radius: 50%; border: 1px solid rgba(255,255,255,0.04); }
         
         .course-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-title); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
         .course-card p { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
 
-        /* REGRAS DAS ANIMAÇÕES DE PULSAÇÃO DE LUZ COORDENADAS */
         @keyframes neon-pulse-blue {
             0% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(0, 210, 255, 0.2); }
             50% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 16px rgba(0, 210, 255, 0.6); border-color: rgba(0, 210, 255, 0.4); }
@@ -66,21 +83,46 @@
             100% { box-shadow: 0 4px 15px rgba(0,0,0,0.4), 0 0 4px rgba(255, 153, 0, 0.2); }
         }
 
-        footer { text-align: center; padding: 25px 10px; font-size: 0.75rem; color: var(--text-desc); font-family: monospace; margin-top: 5px; border-top: 1px solid var(--border-color); }
+        footer { text-align: center; padding: 25px 10px; font-size: 0.75rem; color: var(--text-desc); font-family: monospace; margin-top: 40px; border-top: 1px solid var(--border-color); }
     </style>
 </head>
 <body>
 
     <header class="academy-header">
         <h1>CYBER <span>SECURITY</span></h1>
-        <p>// FORMAÇÃO AVANÇADA DE OPERADORES DE SEGURANÇA</p>
+        <p>// CENTRAL CORPORATIVA DE AUDITORIA E INTELIGÊNCIA</p>
     </header>
 
+    <div class="download-container">
+        <a href="nexoguard.apk" class="download-btn" download>
+            <span>🤖 Baixar Aplicativo Oficial (Android)</span>
+        </a>
+    </div>
+
+    <!-- FERRAMENTA 1: GERADOR CRIPTOGRÁFICO DE SENHAS -->
+    <section class="tool-panel">
+        <h2>Gerador de Senhas de Alta Entropia</h2>
+        <div class="form-group">
+            <label for="pwd-length">Comprimento da Chave (Caracteres)</label>
+            <input type="number" id="pwd-length" class="form-control" value="16" min="8" max="64">
+        </div>
+        <button class="btn-tool" onclick="generateSecurePassword()">Gerar Chave Criptográfica</button>
+        <div id="pwd-output" class="tool-output" style="display: none;"></div>
+    </section>
+
+    <!-- FERRAMENTA 2: ANALISADOR DE FORÇA CONTRA FORÇA BRUTA -->
+    <section class="tool-panel">
+        <h2>Analisador de Resiliência a Força Bruta</h2>
+        <div class="form-group">
+            <label for="pwd-input">Testar Senha Base</label>
+            <input type="text" id="pwd-input" class="form-control" placeholder="Digite uma senha para auditoria..." oninput="analyzePasswordStrength()">
+        </div>
+        <div id="strength-output" class="tool-output" style="display: none; color: var(--text-main);"></div>
+    </section>
+
     <main>
-        <!-- ROADMAP COESIVO DE 8 BLOCOS COM LUZES INDIVIDUAIS -->
         <div class="roadmap-container">
-            
-            <!-- 01. FUNDAMENTOS (AZUL PISCANTE) -->
+            <!-- 01. FUNDAMENTOS -->
             <a href="offensive.html#fundamentos" class="course-link">
                 <div class="course-card pulse-blue">
                     <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🔒</div>
@@ -89,7 +131,7 @@
                 </div>
             </a>
 
-            <!-- 02. LINUX E SHELL (AZUL PISCANTE) -->
+            <!-- 02. LINUX E SHELL -->
             <a href="offensive.html#linux-shell" class="course-link">
                 <div class="course-card pulse-blue">
                     <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-blue));">🐧</div>
@@ -98,66 +140,7 @@
                 </div>
             </a>
 
-            <!-- 03. AUDITORIA WI-FI (MAGENTA PISCANTE) -->
+            <!-- 03. AUDITORIA WI-FI -->
             <a href="offensive.html#wifi" class="course-link">
                 <div class="course-card pulse-magenta">
                     <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">📡</div>
-                    <h3>Auditoria de Redes e Ataques Wi-Fi</h3>
-                    <p style="color: var(--accent-magenta);">Módulo Ofensivo</p>
-                </div>
-            </a>
-
-            <!-- 04. PÓS-EXPLORAÇÃO (MAGENTA PISCANTE) -->
-            <a href="offensive.html" class="course-link">
-                <div class="course-card pulse-magenta">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">🎒</div>
-                    <h3>Pós-Exploração e Pivotamento Linux</h3>
-                    <p style="color: var(--accent-magenta);">Módulo Ofensivo</p>
-                </div>
-            </a>
-
-            <!-- 05. DOCKER PENTEST (NOVO - MAGENTA PISCANTE) -->
-            <a href="soc_automation.html" class="course-link">
-                <div class="course-card pulse-magenta">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-magenta));">🐋</div>
-                    <h3>Docker para Pentesters e Containers</h3>
-                    <p style="color: var(--accent-magenta);">Módulo de Infraestrutura</p>
-                </div>
-            </a>
-
-            <!-- 06. BLUE TEAM (VERDE PISCANTE) -->
-            <a href="defensive.html" class="course-link">
-                <div class="course-card pulse-green">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-green));">🛡️</div>
-                    <h3>Blue Team & Hardening de Servidores</h3>
-                    <p style="color: var(--accent-green);">Módulo Defensivo</p>
-                </div>
-            </a>
-
-            <!-- 07. MALWARE ANDROID (VERDE PISCANTE) -->
-            <a href="defensive.html" class="course-link">
-                <div class="course-card pulse-green">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-green));">🤖</div>
-                    <h3>Desenvolvimento de Malwares para Android</h3>
-                    <p style="color: var(--accent-green);">Módulo Avançado Mobile</p>
-                </div>
-            </a>
-
-            <!-- 08. INTELIGÊNCIA ARTIFICIAL (NOVO - LARANJA PISCANTE) -->
-            <a href="soc_automation.html" class="course-link">
-                <div class="course-card pulse-orange">
-                    <div class="icon-box" style="filter: drop-shadow(0 0 8px var(--accent-orange));">🧠</div>
-                    <h3>Inteligência Artificial para Pentest Web</h3>
-                    <p style="color: var(--accent-orange);">Módulo Avançado Cognitivo</p>
-                </div>
-            </a>
-
-        </div>
-    </main>
-
-    <footer>
-        CYBER SECURITY CORPORATE EDUCATION &copy; 2026 // ACESSO RESTRITO
-    </footer>
-
-</body>
-</html>
