@@ -1,29 +1,246 @@
-<!-- DIRETÓRIOS E BANCOS DE DADOS TÁTICOS -->
-<section class="modules-section">
-    <div class="section-title">
-        <h2>DIRETÓRIOS E BANCOS DE DADOS TÁTICOS</h2>
-        <p>Selecione uma das divisões especializadas para carregar as páginas completas cheias de informações extraídas de auditorias reais:</p>
-    </div>
-
-    <div class="grid-layout">
+<!DOCTYPE html>
+<html lang="pt-BR" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBER SECURITY PORTAL</title>
+    <style>
+        :root {
+            --bg-deep: #030712;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --neon-cyan: #00ffcc;
+            --neon-blue: #3b82f6;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --glow: 0 0 15px rgba(0, 255, 204, 0.3);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'SF Pro Display', -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+        body {
+            background-color: var(--bg-deep);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 255, 204, 0.08) 0px, transparent 50%);
+            color: var(--text-main);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .header-cyber {
+            text-align: center;
+            padding: 30px 15px;
+            border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+            margin-bottom: 30px;
+        }
+        .header-cyber h1 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 40%, var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header-cyber p {
+            font-family: monospace;
+            color: var(--neon-cyan);
+            font-size: 0.85rem;
+            margin-top: 6px;
+            letter-spacing: 2px;
+        }
         
-        <!-- 01. RED TEAM -->
-        <div class="card">
-            <h3><a href="offensive.html" style="color: #00ffcc; text-decoration: none;">01. RED TEAM & INVASÃO OFENSIVA →</a></h3>
-            <p>Acesse o cronograma completo de como os maiores hackers agem em ordem cronológica (Cyber Kill Chain) e veja o roadmap técnico detalhado para se tornar um Pentester elite.</p>
-        </div>
+        /* CONTAINER DE INTELIGÊNCIA ARTIFICIAL */
+        .ai-terminal {
+            background: rgba(10, 15, 30, 0.85);
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 35px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+        }
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--neon-blue);
+            margin-bottom: 10px;
+        }
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-blue);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        .ai-text {
+            font-family: monospace;
+            font-size: 0.9rem;
+            color: #e5e7eb;
+            border-left: 3px solid var(--neon-cyan);
+            padding-left: 12px;
+            margin: 10px 0;
+        }
+        
+        /* GRID CORPORATIVO */
+        .section-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--neon-cyan);
+            padding-left: 10px;
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .card-link {
+            text-decoration: none;
+            display: block;
+        }
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 22px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow);
+            transform: translateY(-2px);
+        }
+        .card-meta {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: var(--neon-cyan);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .tag {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #d1d5db;
+            font-size: 0.7rem;
+            font-family: monospace;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
 
-        <!-- 02. BLUE TEAM -->
-        <div class="card">
-            <h3><a href="defensive.html" style="color: #00ffcc; text-decoration: none;">02. BLUE TEAM & DEFESA AVANÇADA →</a></h3>
-            <p>Explore guias avançados de Inteligência de Fontes Abertas (OSINT), metodologias de Engenharia Reversa de malwares e a implementação prática de arquiteturas Zero Trust.</p>
-        </div>
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; box-shadow: 0 0 8px var(--neon-blue); }
+            100% { transform: scale(0.9); opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
 
-        <!-- 03. SOC & AUTOMAÇÃO -->
-        <div class="card">
-            <h3><a href="soc_automation.html" style="color: #00ffcc; text-decoration: none;">03. SOC, AUTOMATION & SOAR →</a></h3>
-            <p>Monitore playbooks operacionais de resposta a incidentes, ferramentas automatizadas de triagem de logs em Python e estratégias de correlação de eventos em ambientes corporativos.</p>
-        </div>
+    <!-- PAINEL CENTRAL DE ESTRUTURA -->
+    <header class="header-cyber">
+        <h1>CYBER SECURITY</h1>
+        <p>// INFRAESTRUTURA CORPORATIVA DE INTELIGÊNCIA</p>
+    </header>
 
-    </div>
-</section>
+    <main>
+        <!-- CONSOLE COMPONENTE DE INTELIGÊNCIA ARTIFICIAL -->
+        <section class="ai-terminal">
+            <div class="ai-status">
+                <div class="pulse-dot"></div>
+                <span>NÚCLEO COGNITIVO IA OPERACIONAL ATIVO</span>
+            </div>
+            <div class="ai-text" id="ai-response">
+                Analisando telemetria de rede global... 0 ameaças ativas detectadas nas últimas 24h. Pronto para orquestração de playbooks táticos.
+            </div>
+        </section>
+
+        <!-- BANCOS DE DADOS DO ECOSSISTEMA -->
+        <h2 class="section-title">Diretórios de Inteligência</h2>
+        <div class="grid-layout">
+            
+            <!-- CARD 01: RED TEAM -->
+            <a href="offensive.html" class="card-link">
+                <div class="card">
+                    <div class="card-meta">DB_MODULE_01 // HIGH_THREAT</div>
+                    <h3>Red Team & Invasão Ofensiva</h3>
+                    <p>Cronograma real de táticas ofensivas avançadas baseadas em Cyber Kill Chain. Roteiros de auditoria estruturados, desenvolvimento de exploits personalizados e desativação de agentes EDR corporativos.</p>
+                    <div class="tags-container">
+                        <span class="tag">PENTEST_ELITE</span>
+                        <span class="tag">KERNEL_EXPLOITATION</span>
+                        <span class="tag">AV_BYPASS</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- CARD 02: BLUE TEAM -->
+            <a href="defensive.html" class="card-link">
+                <div class="card">
+                    <div class="card-meta">DB_MODULE_02 // COMPLIANCE</div>
+                    <h3>Blue Team & Defesa Avançada</h3>
+                    <p>Mecanismos de mitigação em tempo real. Frameworks estruturados de Inteligência de Fontes Abertas (OSINT), análise profunda de binários maliciosos e implementação de perímetros criptográficos Zero Trust.</p>
+                    <div class="tags-container">
+                        <span class="tag">OSINT_OPSEC</span>
+                        <span class="tag">MALWARE_REVERSING</span>
+                        <span class="tag">ZERO_TRUST_ARCH</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- CARD 03: SOC & AUTOMATION -->
+            <a href="soc_automation.html" class="card-link">
+                <div class="card">
+                    <div class="card-meta">DB_MODULE_03 // SOAR_ENGINE</div>
+                    <h3>SOC, Automation & SOAR</h3>
+                    <p>Módulo automatizado de resposta e contenção. Scripts inteligentes em Python para extração de logs do sistema e ferramentas integradas para reduzir o tempo de mitigação de incidentes críticos.</p>
+                    <div class="tags-container">
+                        <span class="tag">PYTHON_SOC</span>
+                        <span class="tag">INCIDENT_RESPONSE</span>
+                        <span class="tag">SOAR_METRICS</span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- LOG DE INICIALIZAÇÃO DINÂMICO VIA IA INTERNA -->
+    <script>
+        const logs = [
+            "Analisando telemetria de rede global... 0 ameaças ativas detectadas.",
+            "IA: Correlacionando logs de servidores corporativos com a matriz MITRE ATT&CK.",
+            "IA: Nova página SOC & Automação mapeada com sucesso na árvore de diretórios."
+        ];
+        let index = 0;
+        setInterval(() => {
+            index = (index + 1) % logs.length;
+            document.getElementById('ai-response').innerText = logs[index];
+        }, 5000);
+    </script>
+
+</body>
+</html>
