@@ -29,7 +29,7 @@
         .roadmap-container::before { content: ""; position: absolute; top: 0; height: 100%; width: 2px; background: rgba(255,255,255,0.08); z-index: 1; }
 
         .course-link { text-decoration: none; display: block; width: 100%; max-width: 340px; position: relative; z-index: 2; }
-        .course-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+        .course-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.4); width: 100%; }
         
         /* ANIMAÇÃO DE LUZ NEON PISCANTE POR CATEGORIA */
         .pulse-blue { animation: neon-pulse-blue 2s infinite ease-in-out; border-top: 4px solid var(--accent-blue); }
@@ -41,8 +41,8 @@
         
         .icon-box { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 12px; background: rgba(255,255,255,0.01); border-radius: 50%; border: 1px solid rgba(255,255,255,0.04); }
         
-        .course-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-title); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
-        .course-card p { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+        .course-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--text-title); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; display: block; width: 100%; }
+        .course-card p { font-size: 0.75rem; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; display: block; width: 100%; }
 
         /* SEÇÃO DE CONTEÚDO GIGANTE E PROFISSONAL */
         .documentation-section { max-width: 600px; margin: 50px auto 20px auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
@@ -153,4 +153,3 @@
 
             <!-- 08. INTELIGÊNCIA ARTIFICIAL (NOVO - LARANJA PISCANTE) -->
             <a href="soc_automation.html" class="course-link">
-                <div class="course-card pulse-orange">
