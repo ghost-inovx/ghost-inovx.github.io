@@ -20,38 +20,31 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; min-height: 100vh; overflow-x: hidden; }
         
-        /* CABEÇALHO CORPORATIVO */
         .corp-header { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px 20px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
         .corp-header h1 { font-size: 1.8rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
         .corp-header h1 span { color: var(--brand-blue); }
         .corp-header p { font-size: 0.85rem; color: var(--text-secondary); margin-top: 5px; font-family: monospace; }
 
-        /* ABAS CLICÁVEIS DINÂMICAS */
         .corp-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
         .nav-item { background: var(--bg-surface); border: 1px solid var(--border-color); color: #ffffff; text-align: center; padding: 14px 5px; text-decoration: none; font-size: 0.8rem; font-weight: 700; border-radius: 8px; transition: all 0.2s ease; text-transform: uppercase; }
         .nav-item:hover { border-color: var(--brand-blue); background: rgba(0, 102, 255, 0.08); transform: translateY(-1px); }
 
-        /* SUPER MONITOR DE TELEMETRIA OPERACIONAL VIVA (IA) */
-        .ai-telemetry-panel { background: rgba(0, 102, 255, 0.02); border: 1px solid rgba(0, 102, 255, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 0 15px rgba(0, 102, 255, 0.05); position: relative; }
+        .ai-telemetry-panel { background: rgba(0, 102, 255, 0.02); border: 1px solid rgba(0, 102, 255, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 0 15px rgba(0, 102, 255, 0.05); }
         .ai-title-row { display: flex; align-items: center; justify-content: space-between; font-size: 0.8rem; font-weight: 700; color: var(--brand-blue); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 12px; }
         .ai-status-left { display: flex; align-items: center; gap: 8px; }
         .status-indicator { width: 8px; height: 8px; background-color: var(--accent-cyan); border-radius: 50%; animation: pulseGlow 1.2s infinite; }
         .ai-live-text { font-size: 0.95rem; color: #ffffff; min-height: 48px; border-left: 3px solid var(--brand-blue); padding-left: 12px; display: flex; align-items: center; font-family: monospace; }
         
-        /* LINHA DE MÉTRICAS QUE MUDAM EM TEMPO REAL */
         .live-metrics-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 12px; font-family: monospace; font-size: 0.75rem; }
         .metric-block { display: flex; flex-direction: column; }
-        .metric-label { color: var(--text-secondary); margin-bottom: 20px; }
+        .metric-label { color: var(--text-secondary); margin-bottom: 5px; }
         .metric-value { color: var(--accent-cyan); font-weight: bold; }
 
-        /* GRAPHICS E AUDIO LOGS EM TEMPO REAL */
         .live-log-container { background: #040710; border: 1px solid #1e293b; border-radius: 8px; padding: 12px; font-family: monospace; font-size: 0.75rem; color: var(--accent-green); height: 110px; overflow-y: hidden; margin-top: 15px; }
 
-        /* FILTROS DOS DOSSIÊS CORPORATIVOS */
         .section-heading { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; color: #ffffff; border-left: 4px solid var(--brand-blue); padding-left: 10px; }
         .report-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 25px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
         
-        /* CAPA GERADA VIA RECURSO VISUAL CSS COMPACTO INDESTRUTÍVEL */
         .image-banner-tech { width: 100%; height: 150px; position: relative; overflow: hidden; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; align-items: center; justify-content: center; }
         .image-banner-tech::before { content: ""; position: absolute; width: 200%; height: 200%; background: linear-gradient(rgba(0,102,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,102,255,0.05) 1px, transparent 1px); background-size: 20px 20px; animation: gridMove 8s linear infinite; }
         .banner-icon-center { font-size: 2.5rem; position: relative; z-index: 2; opacity: 0.85; filter: drop-shadow(0 0 10px var(--brand-blue)); }
@@ -63,9 +56,19 @@
         .block-title { font-size: 0.75rem; font-weight: 700; color: var(--brand-blue); text-transform: uppercase; margin-bottom: 6px; font-family: monospace; }
         .terminal-block { background: #040710; border: 1px solid rgba(255,255,255,0.03); border-radius: 6px; padding: 14px; font-family: monospace; font-size: 0.8rem; color: #cbd5e1; margin-bottom: 15px; overflow-x: auto; white-space: pre-wrap; border-left: 3px solid var(--brand-blue); }
         
-        .guide-list { margin-left: 15px; }
+        .guide-list { margin-left: 15px; margin-bottom: 15px; }
         .guide-list li { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; list-style-type: square; }
         .guide-list strong { color: #ffffff; }
+
+        /* FORMULÁRIO DE CURSOS */
+        .course-form-container { background: var(--bg-surface); border: 1px solid var(--brand-blue); border-radius: 12px; padding: 25px 20px; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 5px; font-weight: 600; }
+        .form-control { width: 100%; background: #040710; border: 1px solid var(--border-color); border-radius: 6px; padding: 12px; color: var(--text-main); font-size: 0.9rem; outline: none; transition: border 0.2s; }
+        .form-control:focus { border-color: var(--brand-blue); }
+        .btn-submit { width: 100%; background: var(--brand-blue); color: white; border: none; padding: 14px; border-radius: 6px; font-size: 0.9rem; font-weight: 700; cursor: pointer; text-transform: uppercase; transition: opacity 0.2s; }
+        .btn-submit:hover { opacity: 0.9; }
+        .form-response { margin-top: 15px; padding: 12px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; display: none; }
 
         @keyframes pulseGlow {
             0% { transform: scale(0.9); opacity: 0.6; box-shadow: 0 0 0px var(--accent-cyan); }
@@ -80,13 +83,11 @@
 </head>
 <body>
 
-    <!-- PAINEL SUPERIOR -->
     <header class="corp-header">
         <h1>CYBER <span>SECURITY</span></h1>
-        <p>// CORPORATE DATA INTEL ENGINE v4.2</p>
+        <p>// CORPORATE DATA INTEL ENGINE v5.0</p>
     </header>
 
-    <!-- MENU INTEGRADO -->
     <nav class="corp-nav">
         <a href="offensive.html" class="nav-item">Red Team</a>
         <a href="defensive.html" class="nav-item">Blue Team</a>
@@ -94,59 +95,47 @@
     </nav>
 
     <main>
-        <!-- MONITOR DE IA INTERATIVO COM PROCESSAMENTO COMPULSORIO REAL -->
+        <!-- MONITOR DE IA INTERATIVO -->
         <section class="ai-telemetry-panel">
             <div class="ai-title-row">
                 <div class="ai-status-left">
                     <div class="status-indicator"></div>
-                    <span>NÚCLEO IA COGNITIVO OPERACIONAL</span>
+                    <span>SISTEMA DE TELEMETRIA E ANÁLISE OPERACIONAL</span>
                 </div>
                 <div style="font-family: monospace;" id="live-timer">SYS_TIME: 00:00:00</div>
             </div>
             
-            <!-- Texto dinâmico controlado por Inteligência Artificial -->
             <div class="ai-live-text" id="ai-dynamic-text">
                 Inicializando varredura de barramento e checando integridade de dados locais...
             </div>
             
-            <!-- Indicadores numéricos vivos -->
             <div class="live-metrics-row">
                 <div class="metric-block">
                     <span class="metric-label">LATÊNCIA</span>
-                    <span class="metric-value" id="val-latency">14 ms</span>
+                    <span class="metric-value" id="val-latency">12 ms</span>
                 </div>
                 <div class="metric-block">
-                    <span class="metric-label">SEVERIDADE</span>
-                    <span class="metric-value" id="val-severity" style="color: var(--accent-green);">NOMINAL</span>
+                    <span class="metric-label">STATUS_RED</span>
+                    <span class="metric-value" id="val-severity" style="color: var(--accent-green);">INTEGRO</span>
                 </div>
                 <div class="metric-block">
-                    <span class="metric-label">REQUISIÇÕES</span>
-                    <span class="metric-value" id="val-req">4,192/s</span>
+                    <span class="metric-label">SESSÕES_ATIVAS</span>
+                    <span class="metric-value" id="val-req">1,024</span>
                 </div>
             </div>
 
-            <!-- Terminal com logs correndo na tela do celular -->
             <div class="live-log-container" id="live-log-console">
-                [INFO] Inicializando monitor de processos em segundo plano...<br>
-                [OK] Conexão segura estabelecida com a árvore de diretórios do repositório.
+                [SISTEMA] Monitor de telemetria operacional ativo e em execução.<br>
+                [SISTEMA] Indexando inteligência tática de ameaças globais persistentes (APTs).
             </div>
         </section>
 
-        <h2 class="section-heading">Dossiês de Auditoria e Proteção</h2>
-
-        <!-- DOCUMENTO 01: WI-FI -->
-        <article class="report-card">
-            <div class="image-banner-tech">
-                <div class="banner-icon-center">📡</div>
-            </div>
-            <div class="card-content">
-                <h3>Vulnerabilidades Críticas e Proteção em Redes Wi-Fi</h3>
-                <p>Auditorias em redes sem fio demonstram como agentes maliciosos conseguem comprometer roteadores sem precisar de acesso à senha de entrada. Usando adaptadores configurados em Modo Monitor, eles interceptam as transmissões de ondas aéreas e disparam sequências de frames de desautenticação (Deauth) falsificados. Isso força o isolamento instantâneo do celular ou computador do alvo. Na reconexão forçada, o sistema captura o handshake WPA2/WPA3 para quebra de criptografia offline.</p>
-                
-                <div class="block-title">Comandos Reais de Auditoria Wireless</div>
-                <div class="terminal-block">sudo airmon-ng start wlan0
-sudo airodump-ng wlan0mon
-sudo aireplay-ng --deauth 120 -a [BSSID_ROUTER] -c [MAC_ALVO] wlan0mon</div>
-                
-                <div class="block-title">Blindagem e Mitigação Recomendada</div>
-                <ul class="guide-list">
+        <!-- SEÇÃO DE CURSOS / NICHO ACADÊMICO -->
+        <h2 class="section-heading">Formação Profissional em Defesa e Ataque</h2>
+        <section class="course-form-container">
+            <div class="block-title" style="margin-bottom: 12px; font-size: 0.9rem;">Trilha Avançada Avançada em Cibersegurança</div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 20px; line-height: 1.5;">Inscreva-se na plataforma corporativa para receber atualizações acadêmicas, laboratórios práticos de simulação tática e guias completos sobre engenharia reversa e OPSEC.</p>
+            
+            <form id="cyber-enrollment-form" onsubmit="handleEnrollment(event)">
+                <div class="form-group">
+                    <label for="student-name">Nome Completo do Operador</label>
