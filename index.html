@@ -1,21 +1,139 @@
-        <ul class="step-list">
-            <li><strong>Fase 1: Fundamentos de TI</strong><br>Aprenda como funcionam redes de computadores (protocolos IP, portas de conexão), sistemas operacionais avançados (comandos de terminal Linux) e lógica de programação.</li>
-            <li><strong>Fase 2: Análise de Falhas</strong><br>Estude as vulnerabilidades de sistemas mais conhecidas no mundo, como invasões de banco de dados (SQL Injection) e quebra de permissões de servidores.</li>
-            <li><strong>Fase 3: Treinamento Prático</strong><br>Pratique suas habilidades de invasão de forma 100% legal em laboratórios controlados na internet, como as plataformas Hack The Box e TryHackMe.</li>
-        </ul>
-        <a href="#" class="back-link">< VOLTAR AO MENU</a>
-    </div>
+<!DOCTYPE html>
+<html lang="pt-BR" class="notranslate" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate">
+    <title>DANIEL // CYBER SECURITY</title>
+    <style>
+        /* Estilos Globais Anti-Quebra */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { background-color: #020104 !important; color: #bc13fe !important; font-family: 'Consolas', 'Courier New', monospace !important; min-height: 100vh; }
+        body { padding: 20px 10px; display: flex; justify-content: center; align-items: flex-start; }
+        
+        /* Scanlines de Monitor de Elite */
+        body::before {
+            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
+            z-index: 9999; background-size: 100% 4px; pointer-events: none;
+        }
 
-    <!-- TELA INICIAL: MENU PRINCIPAL -->
-    <div id="home" class="content-panel">
-        <div class="tab-menu">
-            <a href="#ataque" style="text-decoration: none;"><button class="tab-btn">> 01. TÁTICAS DE ATAQUE AVANÇADAS</button></a>
-            <a href="#carreira" style="text-decoration: none;"><button class="tab-btn">> 02. GUIA DO HACKER ÉTICO PRO</button></a>
-        </div>
+        /* Frame Principal do Sistema */
+        .terminal-container {
+            width: 100%; max-width: 750px;
+            background: rgba(10, 3, 20, 0.98) !important;
+            border: 2px solid #bc13fe !important;
+            box-shadow: 0 0 40px rgba(188, 19, 254, 0.3) !important;
+            padding: 25px; border-radius: 4px; margin-top: 10px;
+            position: relative;
+        }
+
+        /* Barra de Status */
+        .system-bar {
+            display: flex; justify-content: space-between;
+            font-size: 11px; color: #666; border-bottom: 1px dashed rgba(188, 19, 254, 0.4);
+            padding-bottom: 12px; margin-bottom: 25px;
+        }
+        .sys-active { color: #00ff66 !important; text-shadow: 0 0 5px #00ff66; font-weight: bold; }
+
+        /* Título Principal Exclusivo */
+        .main-title { text-align: center; margin-bottom: 30px; }
+        .main-title h1 { font-size: 24px !important; letter-spacing: 4px !important; color: #ffffff !important; text-shadow: 0 0 12px #bc13fe !important; text-transform: uppercase; }
+        .main-title p { font-size: 11px; color: #00ffff; letter-spacing: 2px; margin-top: 5px; text-shadow: 0 0 5px #00ffff; }
+
+        /* Menu de Navegação Avançado */
+        .navigation-panel { display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px; }
+        .nav-link-block { text-decoration: none !important; }
+        .menu-row-btn {
+            width: 100%; background: rgba(25, 10, 45, 0.6) !important;
+            border: 1px solid #bc13fe !important; color: #bc13fe !important; padding: 16px;
+            font-family: 'Consolas', monospace !important; font-size: 13px !important; font-weight: bold;
+            text-align: left; cursor: pointer; transition: all 0.2s ease;
+            box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.1);
+        }
+        .menu-row-btn:hover { background: #bc13fe !important; color: #020104 !important; box-shadow: 0 0 20px #bc13fe !important; padding-left: 25px; }
+
+        /* Mecânica das Páginas Ocultas via CSS Puro */
+        .page-content { display: none; margin-top: 10px; }
+        
+        /* Exibição Condicional sem Quebra por Tradutor */
+        #page1:target, #page2:target { display: block !important; }
+        #page1:target ~ #main-menu, #page2:target ~ #main-menu { display: none !important; }
+
+        /* Elementos das Páginas de Dados */
+        h2 { font-size: 16px !important; color: #00ffff !important; text-shadow: 0 0 8px #00ffff; margin-bottom: 20px; border-left: 4px solid #00ffff; padding-left: 10px; }
+        
+        .data-card { background: rgba(20, 5, 35, 0.5) !important; border: 1px solid rgba(188, 19, 254, 0.3) !important; border-left: 4px solid #ff007f !important; padding: 18px; margin-bottom: 15px; }
+        .card-label { font-size: 14px !important; font-weight: bold !important; color: #ffffff !important; margin-bottom: 8px; }
+        .card-txt { color: #b5a0cc !important; font-size: 13px !important; line-height: 1.6; }
+        
+        .list-wrapper { margin-left: 20px; color: #cbb3e0 !important; font-size: 13.5px !important; line-height: 1.6; }
+        .list-wrapper li { margin-bottom: 15px; }
+        .list-wrapper strong { color: #00ff66 !important; text-shadow: 0 0 5px rgba(0,255,102,0.2); }
+
+        /* Botão de Retorno */
+        .btn-return { display: inline-block; margin-top: 20px; color: #00ffff !important; text-decoration: none !important; border: 1px solid #00ffff !important; padding: 10px 18px; font-size: 12px !important; font-weight: bold; }
+        .btn-return:hover { background: #00ffff !important; color: #020104 !important; box-shadow: 0 0 12px #00ffff !important; }
+        
+        .sys-footer { text-align: center; margin-top: 40px; font-size: 10px; color: #444; border-top: 1px dashed rgba(188,19,254,0.2); padding-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="terminal-container">
+    <div class="system-bar">
+        <span>CORE: [DANIEL-SEC-NODE]</span>
+        <span>STATUS: <span class="sys-active">SECURE_RUNNING</span></span>
     </div>
     
-    <div class="footer">
-        PORTAL OFICIAL // SECURE LOG _
+    <div class="main-title">
+        <h1>DANIEL CYBER SECURITY</h1>
+        <p>// SYSTEMS INTELLIGENCE ARCHITECTURE</p>
+    </div>
+
+    <!-- PÁGINA DE INFORMAÇÕES 1: TÁTICAS DE ATAQUE -->
+    <div id="page1" class="page-content">
+        <h2>⚔️ TÁTICAS AVANÇADAS DOS MAIORES HACKERS DO MUNDO</h2>
+        <div class="data-card">
+            <div class="card-label">01. Envenenamento de Cadeia de Suprimentos</div>
+            <div class="card-txt">Atacantes de elite evitam perímetros complexos invadindo fornecedores de software ou serviços terceirizados da empresa principal. O malware é distribuído diretamente pelas atualizações oficiais e legítimas do sistema.</div>
+        </div>
+        <div class="data-card" style="border-left-color: #ffaa00 !important;">
+            <div class="card-label">02. Sequestro de Sessão e Bypass de MFA</div>
+            <div class="card-txt">Utilizando proxies reversos de precisão, os invasores roubam os tokens e cookies de autenticação gerados no navegador da vítima após o login. Com esses arquivos, eles entram diretamente na rede ignorando as checagens do celular.</div>
+        </div>
+        <div class="data-card" style="border-left-color: #00ffff !important;">
+            <div class="card-label">03. Execução Oculta na Memória</div>
+            <div class="data-card-txt" style="color: #b5a0cc; font-size: 13px; line-height: 1.6;">Invasores utilizam comandos nativos do próprio sistema administrativo do alvo (técnica Living off the Land). Ao não injetar programas externos, as ferramentas tradicionais de antivírus não geram alertas de infecção.</div>
+        </div>
+        <a href="#" class="btn-return">&lt; FECHAR DIRETÓRIO / VOLTAR</a>
+    </div>
+
+    <!-- PÁGINA DE INFORMAÇÕES 2: CÁLCULO DE CARREIRA HACKER -->
+    <div id="page2" class="page-content">
+        <h2>💎 TRILHA OFICIAL PARA SE TORNAR UM HACKER ÉTICO PRO</h2>
+        <ul class="list-wrapper">
+            <li><strong>01. Arquitetura Base:</strong> Domínio obrigatório de topologias e protocolos de redes de computadores, arquitetura interna de sistemas operacionais de servidores (Linux) e linguagens de script para automação.</li>
+            <li><strong>02. Mapeamento de Brechas:</strong> Estudo técnico profundo das principais famílias de falhas estruturais, engenharia reversa de código e manipulação de fluxos de dados de aplicações corporativas.</li>
+            <li><strong>03. Certificações Globais:</strong> Construção de laboratórios práticos intensivos e obtenção de validações práticas e respeitadas internacionalmente pelo mercado ofensivo de cibersegurança.</li>
+        </ul>
+        <a href="#" class="btn-return">&lt; FECHAR DIRETÓRIO / VOLTAR</a>
+    </div>
+
+    <!-- SISTEMA DE MENU PRINCIPAL (BLINDADO) -->
+    <div id="main-menu" class="page-content" style="display: block;">
+        <div class="navigation-panel">
+            <a href="#page1" class="nav-link-block">
+                <button class="menu-row-btn">&gt; 01. DIRETÓRIO: TÁTICAS DE ATAQUE AVANÇADAS</button>
+            </a>
+            <a href="#page2" class="nav-link-block">
+                <button class="menu-row-btn">&gt; 02. DIRETÓRIO: GUIA DO HACKER ÉTICO PRO</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="sys-footer">
+        DANIEL_SEC // ACCESS CONTROL LOG _
     </div>
 </div>
 
