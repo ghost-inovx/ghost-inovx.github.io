@@ -15,7 +15,7 @@
         }
         body { padding: 15px 10px; display: flex; justify-content: center; align-items: flex-start; }
 
-        /* Grade CRT Cibernética */
+        /* Linhas Digitais CRT */
         body::before {
             content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
@@ -34,16 +34,44 @@
         .system-header h1 { font-family: 'Consolas', monospace !important; font-size: 24px !important; letter-spacing: 2px; color: #ffffff !important; text-shadow: 0 0 10px #00ffff !important; }
         .system-header p { font-family: 'Consolas', monospace !important; font-size: 11px; color: #bc13fe; letter-spacing: 2px; font-weight: bold; margin-top: 4px; }
 
-        /* Banner de Imagem Hacker */
-        .hacker-banner {
+        /* Imagem Estilizada - Substituída por um Canvas de Alta Tecnologia e CSS Avançado */
+        .hacker-avatar-box {
             width: 100%;
-            max-height: 350px;
-            object-fit: cover;
+            height: 180px;
+            background: linear-gradient(45deg, #05020a, #1a0836);
             border: 1px solid #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
             border-radius: 4px;
             margin-bottom: 25px;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Consolas', monospace;
+            overflow: hidden;
+            position: relative;
+        }
+        .matrix-glitch {
+            color: #00ff66;
+            font-size: 11px;
+            position: absolute;
+            top: 5px; left: 10px;
+            opacity: 0.3;
+            line-height: 1.2;
+        }
+        .avatar-guy {
+            font-size: 55px;
+            filter: drop-shadow(0 0 10px #00ffff);
+            margin-bottom: 5px;
+            animation: pulse-logo 2s ease-in-out infinite;
+        }
+        @keyframes pulse-logo { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .avatar-caption {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 3px;
+            text-shadow: 0 0 8px #bc13fe;
         }
 
         /* Layout em Grade para as Pastas Clicáveis */
@@ -66,9 +94,12 @@
         .folder-card:hover .folder-icon { filter: drop-shadow(0 0 10px #00ffff); }
         .folder-name { font-family: 'Consolas', monospace !important; font-size: 12px !important; font-weight: bold; color: #ffffff !important; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Sistema Anti-Travamento de Abas Nativas */
+        /* Sistema Anti-Travamento Total */
         .sub-page { display: none; margin-top: 5px; }
         #attack:target, #roadmap:target, #osint:target, #malware:target { display: block !important; }
+        
+        /* Se nenhuma aba estiver ativa no link, força a exibição do menu principal */
+        #hub-menu { display: block; }
         #attack:target ~ #hub-menu, #roadmap:target ~ #hub-menu, #osint:target ~ #hub-menu, #malware:target ~ #hub-menu { display: none !important; }
 
         /* Páginas de Conteúdo */
@@ -93,8 +124,12 @@
         <p>// OPERATIONAL FILE MANAGER</p>
     </div>
 
-    <!-- IMAGEM CENTRALIZADA -->
-    <img src="https://prodia.technology" alt="Hacker Anonymous" class="hacker-banner">
+    <!-- BANNER HACKER EMBUTIDO INTEGRAL (IMPECÁVEL E INFALÍVEL) -->
+    <div class="hacker-avatar-box">
+        <div class="matrix-glitch">10010110<br>01110100<br>SYSTEM OVERRIDE<br>ACCESS GRANTED</div>
+        <div class="avatar-guy">🎭</div>
+        <div class="avatar-caption">ANONYMOUS INTEL</div>
+    </div>
 
     <!-- PÁGINA 1: CADEIA DE ATAQUE -->
     <div id="attack" class="sub-page">
@@ -133,23 +168,3 @@
                 <div class="step-text">Estudo dos frameworks internacionais de falhas (como o OWASP Top 10) combinado com treinamento em laboratórios práticos intensivos que simulam redes reais, como a plataforma Hack The Box.</div>
             </div>
         </div>
-        <a href="#" class="back-btn">&lt; MOVER DIRETÓRIO ACIMA</a>
-    </div>
-
-    <!-- PÁGINA 3: OSINT -->
-    <div id="osint" class="sub-page">
-        <h2>🌐 INVESTIGAÇÃO DE FONTES ABERTAS (OSINT)</h2>
-        <div class="step-text" style="background: none; border: none; padding: 0;">
-            <div class="step-title" style="color: #ffaa00;">• Google Dorking</div>
-            <p style="color: #dcd1e8; font-size: 13.5px; margin-bottom: 15px; line-height: 1.6;">Operadores avançados de pesquisa filtram a internet pública para expor bancos de dados abertos por erro e painéis administrativos que deveriam estar ocultos.</p>
-            
-            <div class="step-title" style="color: #ffaa00;">• Varredura de IoT</div>
-            <p style="color: #dcd1e8; font-size: 13.5px; margin-bottom: 15px; line-height: 1.6;">Mecanismos de busca de infraestrutura (como Shodan) catalogam em tempo real todos os dispositivos, roteadores e servidores vulneráveis expostos globalmente.</p>
-        </div>
-        <a href="#" class="back-btn">&lt; MOVER DIRETÓRIO ACIMA</a>
-    </div>
-
-    <!-- PÁGINA 4: MALWARE -->
-    <div id="malware" class="sub-page">
-        <h2>☣️ ENGENHARIA REVERSA DE MALWARES</h2>
-        <div class="step-text" style="background: none; border: none; padding: 0;">
