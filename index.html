@@ -1,163 +1,31 @@
- <!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GHOST // CYBER SECURITY PORTAL</title>
+    <title>Daniel Cyber Security // Ethical Hacking</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: #020104;
-            background-image: radial-gradient(circle at 50% 50%, #110322 0%, #020104 100%);
-            color: #bc13fe;
-            font-family: 'Consolas', 'Courier New', monospace;
-            padding: 15px 10px;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-        }
-        body::before {
-            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
-            z-index: 9999; background-size: 100% 4px; pointer-events: none;
-        }
-        .main-frame {
-            width: 100%; max-width: 850px;
-            background: rgba(6, 2, 12, 0.98);
-            border: 1px solid #bc13fe;
-            box-shadow: 0 0 35px rgba(188, 19, 254, 0.25);
-            padding: 20px; border-radius: 4px; margin-top: 10px;
-        }
-        .top-info {
-            display: flex; justify-content: space-between;
-            font-size: 11px; color: #666; border-bottom: 1px dashed rgba(188, 19, 254, 0.3);
-            padding-bottom: 10px; margin-bottom: 20px;
-        }
-        .title-area { text-align: center; margin-bottom: 25px; }
-        .logo-animation { font-size: 45px; text-shadow: 0 0 20px #bc13fe; animation: pulseGlow 2s ease-in-out infinite; }
-        @keyframes pulseGlow { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 30px #bc13fe; } }
-        h1 { font-size: 26px; letter-spacing: 5px; color: #fff; text-shadow: 0 0 10px #bc13fe; margin-top: 5px; }
-        
-        /* Box de boas-vindas especial para a Milena */
-        .welcome-milena {
-            background: rgba(188, 19, 254, 0.05);
-            border: 1px solid #bc13fe;
-            padding: 15px;
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: #fff;
-            text-shadow: 0 0 8px #bc13fe;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-            box-shadow: inset 0 0 10px rgba(188, 19, 254, 0.2);
-        }
-
-        /* Sistema de Abas */
-        .tab-menu { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 25px; border-bottom: 1px solid rgba(188, 19, 254, 0.4); padding-bottom: 15px; }
-        .tab-btn {
-            flex: 1; min-width: 130px; background: rgba(20, 5, 35, 0.6);
-            border: 1px solid #bc13fe; color: #bc13fe; padding: 12px 5px;
-            font-family: inherit; font-size: 12px; font-weight: bold; cursor: pointer;
-            text-align: center; transition: all 0.2s ease;
-        }
-        .tab-btn:hover { background: rgba(188, 19, 254, 0.2); box-shadow: 0 0 10px rgba(188, 19, 254, 0.4); color: #fff; }
-        .tab-btn.active { background: #bc13fe; color: #020104; box-shadow: 0 0 15px #bc13fe; }
-
-        /* Container de Conteúdo Dinâmico */
-        .content-panel { display: none; animation: fadeIn 0.4s ease forwards; }
-        .content-panel.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-        
-        /* Estilização Interna das Páginas */
-        h2 { font-size: 16px; color: #00ffff; text-shadow: 0 0 8px #00ffff; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; border-left: 3px solid #00ffff; padding-left: 10px; }
-        p { color: #cbb3e0; font-size: 14px; line-height: 1.6; margin-bottom: 15px; }
-        
-        .grid-cards { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        @media(min-width: 600px) { .grid-cards { grid-template-columns: 1fr 1fr; } }
-        
-        .info-card { background: rgba(15, 5, 25, 0.7); border: 1px solid rgba(188, 19, 254, 0.3); padding: 15px; border-radius: 2px; }
-        .card-header { font-size: 14px; font-weight: bold; color: #fff; margin-bottom: 8px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px; }
-        .card-body { color: #a491b5; font-size: 12.5px; line-height: 1.5; }
-        
-        .alert-box { background: rgba(255, 0, 127, 0.1); border: 1px solid #ff007f; color: #ff80bf; padding: 15px; margin-bottom: 20px; font-size: 13px; border-radius: 2px; }
-        
-        .step-list { margin-left: 20px; margin-bottom: 15px; color: #cbb3e0; font-size: 13.5px; }
-        .step-list li { margin-bottom: 8px; }
-        .step-list strong { color: #00ff66; text-shadow: 0 0 5px rgba(0,255,102,0.3); }
-
-        .footer { text-align: center; margin-top: 40px; font-size: 11px; color: #444; border-top: 1px dashed rgba(188,19,254,0.2); padding-top: 15px; }
-        .blink { animation: pulse 1s infinite; }
-        @keyframes pulse { 50% { opacity: 0; } }
+        body { background-color: #020104; color: #bc13fe; font-family: 'Consolas', monospace; padding: 20px 10px; }
+        .container { width: 100%; max-width: 750px; background: rgba(6, 2, 12, 0.98); border: 1px solid #bc13fe; padding: 25px; margin: 20px auto; box-shadow: 0 0 25px rgba(188, 19, 254, 0.2); }
+        h1 { font-size: 20px; color: #fff; text-shadow: 0 0 10px #bc13fe; margin-bottom: 20px; border-bottom: 1px dashed rgba(188,19,254,0.3); padding-bottom: 10px; }
+        ul { margin-left: 20px; color: #cbb3e0; font-size: 14px; line-height: 1.6; }
+        li { margin-bottom: 15px; }
+        strong { color: #00ff66; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #00ffff; text-decoration: none; font-size: 13px; border: 1px solid #00ffff; padding: 8px 15px; }
+        .back-btn:hover { background: #00ffff; color: #000; box-shadow: 0 0 10px #00ffff; }
     </style>
 </head>
 <body>
-
-<div class="main-frame">
-    <div class="top-info">
-        <span>SISTEMA: [GHOST-CORE-v3.1]</span>
-        <span>STATUS: <span class="status-online" style="color:#00ff66; text-shadow:0 0 5px #00ff66;">CORE_ACTIVE</span></span>
-    </div>
-    
-    <div class="title-area">
-        <div class="logo-animation">💀</div>
-        <h1>GHOST SECURITY</h1>
-    </div>
-
-    <!-- MENSAGEM DE BOAS-VINDAS À MILENA -->
-    <div class="welcome-milena">
-        👋 Bem-vinda Milena ao meu primeiro site! _
-    </div>
-    
-    <!-- Abas de Navegação Dinâmica -->
-    <div class="tab-menu">
-        <button class="tab-btn active" onclick="openTab('ataque')">01. TÁTICAS DE ATAQUE</button>
-        <button class="tab-btn" onclick="openTab('defesa')">02. GUIA DE DEFESA</button>
-        <button class="tab-btn" onclick="openTab('carreira')">03. HACKER ÉTICO</button>
-    </div>
-    
-    <!-- PÁGINA 1: TÁTICAS DE ATAQUE -->
-    <div id="ataque" class="content-panel active">
-        <h2>⚔️ COMO OS MAIORES HACKERS DO MUNDO BURILAM DEFESAS</h2>
-        <p>Grupos APT (Ameaças Persistentes Avançadas) e hackers estatais utilizam metodologias cirúrgicas divididas em fases para violar perímetros corporativos de segurança máxima.</p>
-        
-        <div class="grid-cards">
-            <div class="info-card">
-                <div class="card-header" style="color: #ff007f;">1. Quebra da Cadeia de Suprimentos</div>
-                <div class="card-body">Invasores infectam o código ou servidores de empresas terceirizadas menores que possuem acesso legítimo à rede da empresa principal (Ex: caso SolarWinds). O malware entra de carona como uma atualização assinada e válida.</div>
-            </div>
-            <div class="info-card">
-                <div class="card-header" style="color: #ffaa00;">2. Bypass de MFA (Autenticação de Dois Fatores)</div>
-                <div class="card-body">Usando técnicas de "MFA Fatigue", atacantes disparam centenas de notificações de login no celular da vítima até que o alvo aprove por engano, ou utilizam Proxies reversos (como Evilginx) para roubar os cookies de sessão já autenticados de dentro do navegador.</div>
-            </div>
-            <div class="info-card">
-                <div class="card-header" style="color: #00ffff;">3. Explorações Pivot e Dia Zero</div>
-                <div class="card-body">Utilização de falhas de segurança desconhecidas (Zero-Days) ou encadeamento de bugs menores (Exploit Chains). Uma vulnerabilidade simples em um servidor web serve de pivô para ganhar acesso e escalar privilégios até o controle total do Active Directory.</div>
-            </div>
-            <div class="info-card">
-                <div class="card-header" style="color: #00ff66;">4. Evasão de EDR e Antivírus</div>
-                <div class="card-body">Ataques modernos utilizam técnicas de injeção direta na memória (Process Hollowing) ou trazem seus próprios drivers legítimos, porém vulneráveis, para desativar os agentes de segurança do kernel do sistema operacional (técnica BYOVD).</div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- PÁGINA 2: GUIA DE DEFESA -->
-    <div id="defesa" class="content-panel">
-        <h2>🛡️ GUIA PROFISSIONAL DE PROTEÇÃO CIBERNÉTICA</h2>
-        <div class="alert-box">
-            A regra básica da segurança da informação é: a defesa precisa cobrir 100% das vulnerabilidades, enquanto o atacante precisa encontrar apenas uma falha.
-        </div>
-        <p>Para mitigar ataques de engenharia social avançada e invasões estruturais, adote os pilares de segurança abaixo:</p>
-        
-        <ul class="step-list">
-            <li><strong>Arquitetura Zero Trust:</strong> Nunca confiar, sempre verificar. Segmentar redes internas de forma que o comprometimento de um computador não dê acesso automático ao restante da infraestrutura.</li>
-            <li><strong>Chaves de Segurança Físicas (FIDO2):</strong> Substituir o MFA baseado em SMS ou aplicativos por chaves de hardware (ex: YubiKey). Elas são imunes a ataques de phishing tradicionais e roubo de cookies.</li>
-            <li><strong>Gerenciamento de Privilégios (PAM):</strong> Nenhum usuário ou administrador deve utilizar privilégios elevados no dia a dia. Contas de "Domain Admin" devem ser blindadas e usadas apenas sob auditoria estrita.</li>
-            <li><strong>Análise Heurística e Caça a Ameaças (Threat Hunting):</strong> Logs de firewalls, servidores e endpoints devem ser centralizados em sistemas SIEM para detectar comportamentos anômalos, em vez de focar apenas em assinaturas antigas de vírus.</li>
-        </ul>
-    </div>
-    
-    <!-- PÁGINA 3: COMO SE TORNAR UM HACKER ÉTICO -->
-    <div id="carreira" class="content-panel">
-        <h2>💎 TRILHA REAL PARA SE TORNAR UM PENTESTER ELITE</h2>
+<div class="container">
+    <h1>💎 THE OFFICIAL ROADMAP TO BECOME AN ELITE ETHICAL HACKER</h1>
+    <ul>
+        <li><strong>Phase 1: Core Fundamentals</strong><br>Master core computer networking architecture (OSI Model, TCP/IP headers, routing protocols), advanced Linux/Windows terminal administration, and foundational logic scripts (Python, Bash, and JS).</li>
+        <li><strong>Phase 2: Vulnerability Analysis</strong><br>Study real structural security concepts like the OWASP Top 10 framework, buffer overflow attacks, deep SQL injections, and asymmetric cryptography mechanics.</li>
+        <li><strong>Phase 3: Legal Training Grounds</strong><br>Build real tactical muscle memory by attacking vulnerable machine boxes inside standard cyber training environments like <em>Hack The Box</em> and <em>TryHackMe</em>.</li>
+        <li><strong>Phase 4: Market Validation</strong><br>Consolidate your technical skills by aiming for industry certifications like <strong>eJPT</strong> (Junior Penetration Tester) for foundation, and the elite <strong>OSCP</strong> (Offensive Security Certified Professional).</li>
+    </ul>
+    <a href="index.html" class="back-btn">< RETURN TO MAIN SYSTEM</a>
+</div>
+</body>
+</html>
