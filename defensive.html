@@ -1,68 +1,62 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="notranslate" translate="no">
+<html lang="pt-BR" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google" content="notranslate">
-    <title>DANIEL CYBER SECURITY // BLUE TEAM</title>
-    <link rel="stylesheet" href="style.css">
+    <title>CYBER SECURITY - BLUE TEAM SHIELD</title>
+    <style>
+        :root {
+            --bg-deep: #02040a;
+            --bg-card: rgba(13, 17, 23, 0.9);
+            --neon-blue: #58a6ff;
+            --neon-cyan: #00ffcc;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
+        body { background-color: var(--bg-deep); color: var(--text-main); padding: 20px; }
+        .header-cyber { text-align: center; padding: 30px 15px; border-bottom: 1px solid rgba(88, 166, 255, 0.2); margin-bottom: 30px; }
+        .header-cyber h1 { font-size: 2rem; color: #ffffff; background: linear-gradient(135deg, #ffffff, var(--neon-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-back { margin-bottom: 20px; display: inline-block; color: var(--neon-cyan); text-decoration: none; font-family: monospace; font-size: 0.9rem; }
+        .section-title { font-size: 1.1rem; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; border-left: 4px solid var(--neon-blue); padding-left: 10px; }
+        .grid-layout { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .card { background: var(--bg-card); border: 1px solid #30363d; border-radius: 12px; padding: 22px; }
+        .card-meta { font-family: monospace; font-size: 0.75rem; color: var(--neon-blue); font-weight: bold; margin-bottom: 8px; }
+        .card h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 10px; }
+        .card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; }
+        .code-box { background: #0d1117; border: 1px solid #21262d; border-radius: 6px; padding: 12px; font-family: monospace; font-size: 0.8rem; color: #58a6ff; overflow-x: auto; white-space: pre-wrap; }
+    </style>
 </head>
 <body>
 
-<div class="enterprise-container">
-    <div class="corp-header">
-        <h1>DANIEL CYBER SECURITY</h1>
-        <p>// DIRETÓRIO DE DEFESA // BLUE TEAM INTEL</p>
-    </div>
+    <!-- BOTÃO PARA RETORNAR À TELA ANTERIOR -->
+    <a href="index.html" class="nav-back">← RETORNAR AO DASHBOARD PRINCIPAL</a>
 
-    <!-- BANNER CORPORATIVO DIGITAL -->
-    <div class="corp-banner">
-        <svg class="banner-svg" viewBox="0 0 24 24" fill="none" stroke="#00ffff" stroke-width="1.5">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
-        <div class="banner-title">BLUE TEAM OPERATIONS</div>
-    </div>
+    <header class="header-cyber">
+        <h1>MÓDULO 02 // BLUE TEAM OPERATIONS</h1>
+        <p style="font-family: monospace; color: var(--neon-blue); font-size: 0.8rem; margin-top: 5px;">MECANISMOS DE DEFESA PROATIVA E AUDITORIA CRIPTOGRÁFICA</p>
+    </header>
 
-    <h2 class="section-title">INTEL DE FONTES ABERTAS (OSINT AVANÇADO ATUALIZADO)</h2>
-    
-    <div class="intel-data-block">
-        <div class="intel-block-title">01. Google Dorking de Precisão e Auditoria</div>
-        <div class="intel-block-body">
-            Analistas defensivos utilizam strings matemáticas avançadas de pesquisa para caçar vazamentos antes dos criminosos. Comandos como <code>site:github.com "empresa" "prod_password"</code> localizam senhas de produção expostas por engano por desenvolvedores, enquanto <code>intitle:"index of" "backup.sql"</code> varre servidores mal configurados indexados pelo Google.
+    <main>
+        <h2 class="section-title">Diretrizes de Hardening e Análise</h2>
+        <div class="grid-layout">
+            
+            <div class="card">
+                <div class="card-meta">DEFENSE_TACTIC // OSINT_RECON</div>
+                <h3>Mapeamento de Superfície de Ataque Exposta</h3>
+                <p>Uso de frameworks automatizados de Inteligência de Fontes Abertas para identificar portas e subdomínios desprotegidos expostos na internet.</p>
+                <div class="code-box">nmap -sS -sV -O --script=vuln [IP_ALVO_CORPORATIVO]</div>
+            </div>
+
+            <div class="card">
+                <div class="card-meta">DEFENSE_TACTIC // ENDPOINT_HARDENING</div>
+                <h3>Auditoria de Integridade de Conexões Locais Linux</h3>
+                <p>Verificação sistemática de soquetes ativos para isolamento de backdoors ou comunicações anômalas com IPs externos não autorizados.</p>
+                <div class="code-box">ss -tulpn && netstat -antp | grep ESTABLISHED</div>
+            </div>
+
         </div>
-    </div>
-
-    <div class="intel-data-block">
-        <div class="intel-block-title">02. Varredura Passiva Globais de IoT (Shodan & Censys)</div>
-        <div class="intel-block-body">
-            O ecossistema corporativo monitora portas lógicas expostas na internet através de sensores automatizados. Motores de busca como <strong>Shodan</strong> catalogam em tempo real roteadores corporativos operando com senhas padrão de fábrica, câmeras IPs sem chaves de autenticação e painéis de controle de plantas industriais (SCADA) totalmente desprotegidos.
-        </div>
-    </div>
-
-    <h2 class="section-title">DISSECAÇÃO E ENGENHARIA REVERSA DE MALWARES</h2>
-
-    <div class="intel-data-block">
-        <div class="intel-block-title">01. Análise Dinâmica Avançada (Sandboxing Isolado)</div>
-        <div class="intel-block-body">
-            Para estudar vírus de alta complexidade (Ransomwares de última geração), engenheiros executam arquivos maliciosos dentro de ambientes de kernel simulados e monitorados. Ferramentas registram quais chaves de registro o vírus altera para obter persistência e mapeiam os IPs de servidores de comando externos (C2) usados para exfiltrar dados.
-        </div>
-    </div>
-
-    <div class="intel-data-block">
-        <div class="intel-block-title">02. Descompilação Binária em Linguagem Assembly</div>
-        <div class="intel-block-body">
-            Quando criminosos utilizam técnicas avançadas de ofuscação de código, analistas utilizam descompiladores como o <code>Ghidra</code> (desenvolvido pela NSA) ou o <code>IDA Pro</code>. Essas ferramentas convertem o binário do vírus de volta para instruções estruturais de linguagem <strong>Assembly</strong>, revelando toda a lógica matemática da infecção.
-        </div>
-    </div>
-
-    <div class="back-btn-container">
-        <a href="index.html" class="corp-back-btn">&lt; Voltar ao Menu Principal</a>
-    </div>
-
-    <div class="corp-footer">
-        DANIEL CYBER SECURITY // DEFENSIVE MODULE COMPLETE _
-    </div>
-</div>
+    </main>
 
 </body>
 </html>
