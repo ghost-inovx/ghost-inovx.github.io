@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER ACADEMY - DEFENSIVE MODULE</title>
+    <title>CYBER SECURITY - DEFENSIVE OPERATIONS</title>
     <style>
         :root {
             --bg-main: #060913;
             --bg-card: #0b1220;
-            --bg-terminal: #020408;
             --accent-green: #00ff66;
             --accent-blue: #00d2ff;
             --text-title: #ffffff;
@@ -16,25 +15,61 @@
             --border-color: rgba(255, 255, 255, 0.05);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, sans-serif; }
-        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.5; }
+        body { background-color: var(--bg-main); color: #ffffff; padding: 15px; line-height: 1.6; }
         .nav-back { color: var(--accent-blue); text-decoration: none; font-family: monospace; display: inline-block; margin-bottom: 20px; font-weight: bold; font-size: 0.85rem; }
-        .section-title { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; color: #ffffff; border-left: 4px solid var(--accent-green); padding-left: 12px; }
-        .lesson-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 22px; margin-bottom: 20px; }
-        .lesson-card h3 { font-size: 1.1rem; color: #ffffff; margin-bottom: 8px; }
-        .lesson-card p { color: var(--text-desc); font-size: 0.85rem; margin-bottom: 12px; }
-        .terminal-block { background: var(--bg-terminal); border: 1px solid rgba(255,255,255,0.02); border-radius: 6px; padding: 12px; font-family: 'Courier New', monospace; font-size: 0.8rem; color: #79c0ff; border-left: 3px solid var(--accent-green); overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
+        .section-title { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; margin-bottom: 25px; color: #ffffff; border-left: 4px solid var(--accent-green); padding-left: 12px; }
+        
+        .knowledge-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 15 rgba(0,0,0,0.2); }
+        .knowledge-section h3 { font-size: 1.2rem; color: #ffffff; margin-bottom: 12px; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 6px; }
+        
+        .topic-block { margin-bottom: 20px; }
+        .topic-title { font-size: 0.95rem; font-weight: 700; color: var(--accent-green); margin-bottom: 6px; text-transform: uppercase; font-family: monospace; }
+        .knowledge-section p { color: var(--text-desc); font-size: 0.9rem; margin-bottom: 10px; }
+        
+        .bullet-list { margin-left: 20px; margin-bottom: 10px; }
+        .bullet-list li { color: var(--text-desc); font-size: 0.9rem; margin-bottom: 8px; list-style-type: square; }
+        .bullet-list strong { color: #ffffff; }
     </style>
 </head>
 <body>
 
     <a href="index.html" class="nav-back">← RETORNAR À ÁRVORE DE CURSOS</a>
-    <h2 class="section-title">Aulas Técnicas // Trilha Defensiva</h2>
+    <h2 class="section-title">Repositório de Conhecimento // Trilha Defensiva</h2>
 
-    <div class="lesson-card">
-        <h3>Aula 1: Hardening de Servidores e Proteção de Portas</h3>
-        <p>Uso de firewalls nativos do kernel Linux para bloquear conexões laterais e auditoria estrita de soquetes ativos.</p>
-        <div class="terminal-block">ss -tulpn&#10;sudo ufw default deny incoming&#10;sudo ufw allow 443/tcp&#10;sudo ufw enable</div>
-    </div>
+    <!-- PROTEÇÃO WI-FI DETALHADA -->
+    <section class="knowledge-section">
+        <h3>Ensino Avançado de Proteção de Redes Sem Fio</h3>
+        
+        <div class="topic-block">
+            <div class="topic-title">Mecanismo Protected Management Frames (PMF - IEEE 802.11w)</div>
+            <p>A contramedida definitiva contra a derrubada forçada de dispositivos de uma rede sem fio baseia-se na ativação dos quadros de gerenciamento protegidos. Em roteadores comuns de mercado, os frames que controlam a desconexão trafegam em texto claro e sem cifra. Ao habilitar o padrão PMF nas configurações de segurança corporativas, o roteador passa a criptografar e validar digitalmente esses pacotes, anulando por completo a eficácia de ataques de injeção como os ataques Deauth.</p>
+        </div>
+
+        <div class="topic-block">
+            <div class="topic-title">Arquiteturas Baseadas em Autenticação por Certificados (802.1X)</div>
+            <p>Substituir o modelo comum de senhas estáticas e pré-compartilhadas (WPA2-PSK) por autenticações corporativas centralizadas (WPA3-Enterprise / EAP-TLS). Nessa metodologia de alta segurança, chaves comuns não existem. Cada smartphone ou notebook recebe um certificado criptográfico digital exclusivo emitido por uma Autoridade Certificadora interna integrado a servidores RADIUS, eliminando por completo a viabilidade técnica de captura e quebra de handshakes.</p>
+        </div>
+    </section>
+
+    <!-- HARDENING E SERVIDORES -->
+    <section class="knowledge-section">
+        <h3>Mitigação de Riscos em Endpoints, Servidores e Memória RAM</h3>
+        
+        <div class="topic-block">
+            <div class="topic-title">Compreendendo o Funcionamento de Ataques Sem Arquivos (Fileless Malware)</div>
+            <p>Grupos globais de ransomware de alta periculosidade (como o LockBit) evitam salvar arquivos executáveis físicos diretamente nos discos rígidos dos servidores afetados. Isso impossibilita a detecção por parte de softwares de antivírus tradicionais baseados em assinaturas estáticas de arquivos.</p>
+            <p>Eles utilizam consoles nativos e confiáveis do próprio sistema (como PowerShell ou Bash administrativo) para injetar shellcodes maliciosos diretamente dentro da memória RAM virtual viva alocada para processos legítimos do sistema operacional (técnica conhecida como Process Hollowing), operando ocultos na memória volátil.</p>
+        </div>
+
+        <div class="topic-block">
+            <div class="topic-title">Princípios de Hardening de Sistemas Operacionais e Redes</div>
+            <ul class="bullet-list">
+                <li><strong>Arquitetura Zero Trust (Confiança Zero):</strong> Modelo analítico estruturado sob o conceito de "nunca confiar, sempre verificar". Exige autenticação contínua e isolamento rigoroso de requisições de rede.</li>
+                <li><strong>Auditoria de Portas do Kernel e Firewalling:</strong> Monitoramento ativo de soquetes abertos e listeners no sistema para identificar conexões de backdoors anômalas, bloqueando tráfegos de entrada não homologados.</li>
+                <li><strong>Políticas Estritas de Whitelisting (WDAC):</strong> Restrições severas a nível de sistema operacional para impedir o carregamento de DLLs ou o acionamento de scripts automatizados por usuários comuns.</li>
+            </ul>
+        </div>
+    </section>
 
 </body>
 </html>
