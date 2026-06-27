@@ -1,0 +1,62 @@
+/* style.css - ENTERPRISE SECURITY DESIGN REGIN */
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+html, body { background-color: #030106; color: #ffffff; font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; min-height: 100vh; line-height: 1.6; }
+body { padding: 20px 15px; display: flex; justify-content: center; align-items: flex-start; }
+
+/* Scanlines Digitais Corporativas */
+body::before {
+    content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.45) 50%);
+    z-index: 9999; background-size: 100% 4px; pointer-events: none;
+}
+
+.enterprise-container {
+    width: 100%; max-width: 950px;
+    background: #08040f; border: 2px solid #00ffff;
+    box-shadow: 0 0 40px rgba(0, 255, 255, 0.25);
+    padding: 35px 25px; border-radius: 8px;
+}
+
+/* Header de Alta Tecnologia */
+.corp-header { text-align: center; margin-bottom: 35px; border-bottom: 2px solid #00ffff; padding-bottom: 25px; }
+.corp-header h1 { font-size: 32px; font-weight: 900; letter-spacing: 3px; color: #ffffff; text-shadow: 0 0 15px #00ffff; text-transform: uppercase; }
+.corp-header p { font-size: 13px; color: #ff007f; letter-spacing: 4px; font-weight: bold; margin-top: 5px; }
+
+/* Grid de Banner Gráfico */
+.corp-banner {
+    width: 100%; height: 180px; background: linear-gradient(45deg, #010003, #150529);
+    border: 1px solid rgba(0, 255, 255, 0.3); border-radius: 6px; margin-bottom: 35px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; overflow: hidden;
+}
+.banner-matrix-code { position: absolute; font-family: monospace; font-size: 10px; color: #00ff66; opacity: 0.12; width: 100%; text-align: center; line-height: 1.3; pointer-events: none; }
+.banner-icon { font-size: 50px; filter: drop-shadow(0 0 10px #00ffff); }
+.banner-title { font-family: monospace; font-size: 13px; color: #ffffff; letter-spacing: 4px; margin-top: 6px; text-shadow: 0 0 5px #bc13fe; font-weight: bold; }
+
+/* Menu de Operações (Navegação Comercial) */
+.ops-menu-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-bottom: 30px; }
+@media(min-width: 600px) { .ops-menu-grid { grid-template-columns: 1fr 1fr; } }
+.ops-card-link { text-decoration: none !important; }
+.ops-card {
+    background: rgba(22, 9, 41, 0.5); border: 1px solid #bc13fe; border-radius: 6px; padding: 25px 20px;
+    text-align: left; cursor: pointer; transition: all 0.25s ease; box-shadow: inset 0 0 15px rgba(188, 19, 254, 0.05);
+}
+.ops-card:hover { border-color: #00ffff; background: rgba(0, 255, 255, 0.08); box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); transform: translateY(-3px); }
+.ops-card h3 { font-size: 16px; color: #ffffff; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; display: flex; justify-content: space-between; align-items: center; }
+.ops-card h3::after { content: "➔"; color: #00ffff; font-size: 14px; }
+.ops-card p { color: #bcaed4; font-size: 13px; line-height: 1.5; }
+
+/* Blocos de Informação e Conteúdo Pesado */
+.section-title { font-size: 22px; color: #00ffff; text-shadow: 0 0 10px rgba(0,255,255,0.3); margin: 30px 0 20px 0; border-left: 5px solid #00ffff; padding-left: 15px; text-transform: uppercase; letter-spacing: 1px; }
+.section-desc { color: #d0c4e3; font-size: 15px; line-height: 1.7; margin-bottom: 25px; }
+
+.intel-data-block { background: rgba(14, 5, 26, 0.6); border: 1px solid rgba(188, 19, 254, 0.3); border-left: 5px solid #00ff66; padding: 25px; margin-bottom: 25px; border-radius: 4px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); }
+.intel-block-title { font-size: 18px; font-weight: bold; color: #ffffff; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 6px; }
+.intel-block-body { color: #f3ebff; font-size: 14.5px; line-height: 1.7; }
+.intel-block-body strong { color: #00ff66; }
+.intel-block-body code { background: rgba(0,0,0,0.5); color: #ff007f; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 13.5px; }
+
+.back-btn-container { margin-top: 35px; border-top: 1px dashed rgba(0,255,255,0.2); padding-top: 20px; }
+.corp-back-btn { display: inline-block; color: #00ffff; text-decoration: none; border: 2px solid #00ffff; padding: 12px 25px; font-size: 13px; font-weight: bold; border-radius: 4px; text-transform: uppercase; background: transparent; transition: all 0.2s ease; }
+.corp-back-btn:hover { background: #00ffff; color: #030106; box-shadow: 0 0 15px #00ffff; }
+
+.corp-footer { text-align: center; margin-top: 45px; font-size: 12px; color: #555; border-top: 1px dashed rgba(0,255,255,0.15); padding-top: 18px; font-family: monospace; }
